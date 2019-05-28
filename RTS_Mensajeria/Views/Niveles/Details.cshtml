@@ -1,7 +1,7 @@
-﻿@model RTS_Mensajeria.Models.DB_Model.TipoUsuario
+﻿@model RTS_Mensajeria.Models.DB_Model.Nivel
 
 @{
-    ViewBag.Title = "Detalles del tipo de usuario";
+    ViewBag.Title = "Detalles del nivel";
 }
 
 @if (!Request.IsAuthenticated)
@@ -16,9 +16,9 @@ else
             <h4 class="ml-3 mb-2 mb-sm-0 pt-1 white-text">
                 <span><a href="@Url.Action("Index","Home")" class="text-decoration-none white-text"><i class="fa fa-home mr-1"></i> Inicio</a></span>
                 <span>/</span>
-                <span><a href="@Url.Action("Index", "TipoUsuarios")" class="text-decoration-none white-text"><i class="fa fa-user-friends mr-1"></i> Tipos de usuario</a></span>
+                <span><a href="@Url.Action("Index", "Niveles")" class="text-decoration-none white-text"><i class="fa fa-building mr-1"></i> Niveles</a></span>
                 <span>/</span>
-                <span>Detalle del tipo de usuario</span>
+                <span>Detalle del nivel</span>
             </h4>
             <div class="mr-3">
                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
@@ -31,35 +31,35 @@ else
                 <br />
                 <div class="row">
                     <div class="col-md-10">
-                        <h2>Detalle del tipo de usuario</h2>
+                        <h2>Detalle del nivel</h2>
                     </div>
                 </div>
                 <hr />
                 <div>
                     <dl class="dl-horizontal">
                         <dt>
-                            @Html.DisplayNameFor(model => model.Nombre)
+                            @Html.DisplayNameFor(model => model.Ubicacion)
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Nombre)
+                            @Html.DisplayFor(model => model.Ubicacion)
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.Detalle)
+                            @Html.DisplayNameFor(model => model.Descripcion)
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Detalle)
+                            @Html.DisplayFor(model => model.Descripcion)
                         </dd>
                     </dl>
                 </div>
                 <br />
                 <div class="form-group text-right">
                     <div class="col-md-offset-2 col-md-10">
-                        <a class="btn btn-primary" href="@Url.Action("Index", "TipoUsuarios")"><i class="fa fa-arrow-left mr-1"></i> Regresar</a>
+                        <a class="btn btn-primary" href="@Url.Action("Index", "Niveles")"><i class="fa fa-arrow-left mr-1"></i> Regresar</a>
                         |
-                        <a href="@Url.Action("Edit", "TipoUsuarios", new { id = Model.Id_TipoUsuario})" class="btn btn-default"><i class="fa fa-edit ml-1"></i> Editar </a>
+                        <a href="@Url.Action("Edit", "Niveles", new { id = Model.Id_Nivel})" class="btn btn-default"><i class="fa fa-edit ml-1"></i> Editar </a>
                     </div>
                 </div>
             </div>

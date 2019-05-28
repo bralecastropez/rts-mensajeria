@@ -192,6 +192,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NivelesController.cs" />
     <Compile Include="Controllers\TipoUsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -488,6 +489,13 @@
     <Content Include="Views\TipoUsuarios\Edit.cshtml" />
     <Content Include="Views\TipoUsuarios\Index.cshtml" />
     <Content Include="Views\TipoUsuarios\Active.cshtml" />
+    <Content Include="Views\Niveles\Create.cshtml" />
+    <Content Include="Views\Niveles\Delete.cshtml" />
+    <Content Include="Views\Niveles\Details.cshtml" />
+    <Content Include="Views\Niveles\Edit.cshtml" />
+    <Content Include="Views\Niveles\Index.cshtml" />
+    <Content Include="Views\Niveles\Inactive.cshtml" />
+    <Content Include="Views\Niveles\Active.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

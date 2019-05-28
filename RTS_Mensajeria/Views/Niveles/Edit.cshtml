@@ -1,27 +1,23 @@
-﻿@using RTS_Mensajeria.Models
-@using System.Web.UI.WebControls
-@using System.Linq;
-@using System.Data.Entity;
-@model RTS_Mensajeria.Models.DB_Model.TipoUsuario
+﻿@model RTS_Mensajeria.Models.DB_Model.Nivel
 
 @{
-    ViewBag.Title = "Crear tipo de usuario";
+    ViewBag.Title = "Editar nivel";
 }
+
 @if (!Request.IsAuthenticated)
 {
     Response.Redirect(@Url.Action("Login", "Account"));
 }
 else
 {
-
     <div class="card card-cascade narrower">
         <div class="view view-cascade primary-color narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
             <h4 class="ml-3 mb-2 mb-sm-0 pt-1 white-text">
                 <span><a href="@Url.Action("Index","Home")" class="text-decoration-none white-text"><i class="fa fa-home mr-1"></i> Inicio</a></span>
                 <span>/</span>
-                <span><a  href="@Url.Action("Index", "TipoUsuarios")" class="text-decoration-none white-text"><i class="fa fa-user-friends mr-1"></i> Tipos de usuario</a></span>
+                <span><a href="@Url.Action("Index", "Niveles")" class="text-decoration-none white-text"><i class="fa fa-building mr-1"></i> Niveles</a></span>
                 <span>/</span>
-                <span>Agregar tipo de usuario</span>
+                <span>Editar nivel</span>
             </h4>
             <div class="mr-3">
                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
@@ -34,37 +30,43 @@ else
                 <br />
                 <div class="row">
                     <div class="col-md-10">
-                        <h2>Nuevo tipo de usuario</h2>
+                        <h2>Editar Nivel</h2>
                     </div>
                 </div>
                 <hr />
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
-                    @Html.HiddenFor(model => model.Estado, new { @Value = "Activo" })
+
                     <div class="form-horizontal">
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.Id_Nivel)
+                        @Html.HiddenFor(model => model.Estado)
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.Ubicacion, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                                @Html.DropDownListFor(model => model.Ubicacion, new SelectList(new List<Object>{
+                                    new { value = "Comercial" , text = "Comercial"  },
+                                    new { value = "Edificio" , text = "Edificio" }},
+                                    "value", "text", 2), new { @class = "mdb-select md-form" })
+                                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.Ubicacion, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Detalle, htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Detalle, new { htmlAttributes = new { @class = "form-control md-textarea " } })
-                                @Html.ValidationMessageFor(model => model.Detalle, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "md-form md-textarea" } })
+                                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <br />
                         <div class="form-group text-right">
                             <div class="col-md-offset-2 col-md-10">
-                                <a class="btn btn-primary" href="@Url.Action("Index", "TipoUsuarios")"><i class="fa fa-arrow-left mr-1"></i> Regresar</a>
+                                <a class="btn btn-primary" href="@Url.Action("Index", "Nivel")"><i class="fa fa-arrow-left mr-1"></i> Regresar</a>
                                 |
-                                <button type="submit" class="btn btn-default"><i class="fas fa-magic ml-1"></i> Crear </button>
+                                <button type="submit" class="btn btn-default"><i class="fa fa-save ml-1"></i> Guardar </button>
                             </div>
                         </div>
                     </div>

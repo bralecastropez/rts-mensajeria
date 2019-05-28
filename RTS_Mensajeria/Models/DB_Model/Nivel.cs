@@ -11,7 +11,9 @@ namespace RTS_Mensajeria.Models.DB_Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Nivel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +23,20 @@ namespace RTS_Mensajeria.Models.DB_Model
         }
     
         public int Id_Nivel { get; set; }
+
+        [DefaultValue("Comercial")]
+        [Display(Name = "Ubicación")]
+        [StringLength(9, MinimumLength = 8)]
         public string Ubicacion { get; set; }
+
+        [StringLength(200)]
+        [Display(Name = "Descripción")]
+        [DataType(DataType.MultilineText)]
+        [Required(ErrorMessage = "Debe ingresar el descripción del nivel")]
         public string Descripcion { get; set; }
+
+        [DefaultValue("Activo")]
+        [StringLength(8, MinimumLength = 6)]
         public string Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

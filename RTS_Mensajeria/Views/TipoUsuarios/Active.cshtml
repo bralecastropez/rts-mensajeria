@@ -13,9 +13,9 @@ else
     <div class="card card-cascade narrower">
         <div class="view view-cascade primary-color narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
             <h4 class="ml-3 mb-2 mb-sm-0 pt-1 white-text">
-                <span><a href="@Url.Action("Index","Home")" class="text-decoration-none white-text"><i class="fa fa-home"></i> Inicio</a></span>
+                <span><a href="@Url.Action("Index","Home")" class="text-decoration-none white-text"><i class="fa fa-home mr-1"></i> Inicio</a></span>
                 <span>/</span>
-                <span><a href="@Url.Action("Index", "TipoUsuarios")" class="text-decoration-none white-text"><i class="fa fa-user-friends"></i> Tipos de usuario</a></span>
+                <span><a href="@Url.Action("Index", "TipoUsuarios")" class="text-decoration-none white-text"><i class="fa fa-user-friends mr-1"></i> Tipos de usuario</a></span>
                 <span>/</span>
                 <span>Activar el tipo de usuario</span>
             </h4>
@@ -51,15 +51,6 @@ else
                         <dd>
                             @Html.DisplayFor(model => model.Detalle)
                         </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Estado)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Estado)
-                        </dd>
-
                     </dl>
 
                     <hr />

@@ -68,10 +68,16 @@
                             <div class="collapsible-body">
                                 <ul>
                                     <li>
-                                        <a href="#" class="waves-effect">Administrar niveles</a>
+                                        <a href="@Url.Action("Index", "Niveles")" class="waves-effect">Administrar niveles</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="waves-effect">Horarios de entrega</a>
+                                        <a href="@Url.Action("Inactive", "Niveles")" class="waves-effect">Reactivar niveles</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "HorariosEntrega")" class="waves-effect">Horarios de entrega</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Inactive", "HorariosEntrega")" class="waves-effect">Reactivar horarios de entrega</a>
                                     </li>
                                 </ul>
                             </div>

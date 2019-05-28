@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="989b80a0a3084631b0f0727576caed13" Name="Diagram1">
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.Contacto" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.DetalleIngresoProveedor" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.Empresa" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.HorarioEntrega" Width="1.5" PointX="3.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.Ingreso" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.IngresoProveedor" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.Mensajero" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.Modulo" Width="1.5" PointX="11" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.Nivel" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.Oficina" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.Proveedor" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.RutaEntrega" Width="1.5" PointX="11.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.TipoUsuario" Width="1.5" PointX="8.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RTS_MensajeriaModel.Usuario" Width="1.5" PointX="11" PointY="12" IsExpanded="true" />
+        <AssociationConnector Association="RTS_MensajeriaModel.PK_Contacto_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="RTS_MensajeriaModel.FK_DetalleIngresoProveedor_IngresoProveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="RTS_MensajeriaModel.FK_Ingreso_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="RTS_MensajeriaModel.FK_IngresoProveedor_HoraEntrega" ManuallyRouted="false" />
+        <AssociationConnector Association="RTS_MensajeriaModel.FK_Ingreso_Proveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="RTS_MensajeriaModel.FK_Mensajero_Ingreso" ManuallyRouted="false" />
+        <AssociationConnector Association="RTS_MensajeriaModel.FK_RutaEntrega_Ingreso" ManuallyRouted="false" />
+        <AssociationConnector Association="RTS_MensajeriaModel.FK_IngresoProveedor_Proveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="RTS_MensajeriaModel.FK_RutaEntrega_SolicitudProveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="RTS_MensajeriaModel.FK_Modulo_TipoUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="RTS_MensajeriaModel.FK_Oficina_Nivel" ManuallyRouted="false" />
+        <AssociationConnector Association="RTS_MensajeriaModel.FK_TipoUsuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,77 @@
+﻿@model RTS_Mensajeria.Models.DB_Model.TipoUsuario
+
+@{
+    ViewBag.Title = "Detalles del tipo de usuario";
+}
+
+@if (!Request.IsAuthenticated)
+{
+    Response.Redirect(@Url.Action("Login", "Account"));
+}
+else
+{
+
+    <div class="card card-cascade narrower">
+        <div class="view view-cascade primary-color narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+            <h4 class="ml-3 mb-2 mb-sm-0 pt-1 white-text">
+                <span><a href="@Url.Action("Index","Home")" class="text-decoration-none white-text"><i class="fa fa-home"></i> Inicio</a></span>
+                <span>/</span>
+                <span><a href="@Url.Action("Index", "TipoUsuarios")" class="text-decoration-none white-text"><i class="fa fa-user-friends"></i> Tipos de usuario</a></span>
+                <span>/</span>
+                <span>Detalle del tipo de usuario</span>
+            </h4>
+            <div class="mr-3">
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fas fa-info-circle mt-0"></i>
+                </button>
+            </div>
+        </div>
+        <div class="px-4">
+            <div class="table-wrapper">
+                <br />
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2>Detalle del tipo de usuario</h2>
+                    </div>
+                </div>
+                <hr />
+                <div>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Nombre)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Nombre)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Detalle)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Detalle)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Estado)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Estado)
+                        </dd>
+
+                    </dl>
+                </div>
+                <br />
+                <div class="form-group text-right">
+                    <div class="col-md-offset-2 col-md-10">
+                        <a class="btn btn-primary" href="@Url.Action("Index", "TipoUsuarios")"><i class="fa fa-arrow-left mr-1"></i> Regresar</a>
+                        |
+                        <a href="@Url.Action("Edit", "TipoUsuarios", new { id = Model.Id_TipoUsuario})" class="btn btn-default"><i class="fa fa-edit ml-1"></i> Editar </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

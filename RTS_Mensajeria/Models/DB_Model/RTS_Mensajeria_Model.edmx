@@ -1,0 +1,978 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RTS_MensajeriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contacto">
+          <Key>
+            <PropertyRef Name="Id_Contacto" />
+          </Key>
+          <Property Name="Id_Contacto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Empresa" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" />
+          <Property Name="CUI" Type="varchar" MaxLength="100" />
+          <Property Name="Correo" Type="varchar" MaxLength="200" />
+          <Property Name="Notificar" Type="int" />
+          <Property Name="Estado" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DetalleIngresoProveedor">
+          <Key>
+            <PropertyRef Name="Id_DetalleIngresoProveedor" />
+          </Key>
+          <Property Name="Id_DetalleIngresoProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_IngresoProveedor" Type="int" Nullable="false" />
+          <Property Name="CodigoDetalle" Type="text" />
+          <Property Name="Detalle_Rechazo" Type="text" />
+          <Property Name="Hora_Entrega" Type="time" Precision="7" />
+          <Property Name="Estado_Entrega" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="Id_Empresa" />
+          </Key>
+          <Property Name="Id_Empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" />
+          <Property Name="TipoEmpresa" Type="varchar" MaxLength="255" />
+          <Property Name="Estado" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="HorarioEntrega">
+          <Key>
+            <PropertyRef Name="Id_HorarioEntrega" />
+          </Key>
+          <Property Name="Id_HorarioEntrega" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hora_Entrega" Type="time" Precision="7" />
+          <Property Name="Hora_Salida" Type="time" Precision="7" />
+          <Property Name="Estado" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Ingreso">
+          <Key>
+            <PropertyRef Name="Id_Ingreso" />
+          </Key>
+          <Property Name="Id_Ingreso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo_Ingreso" Type="varchar" MaxLength="100" />
+          <Property Name="Id_Empresa" Type="int" Nullable="false" />
+          <Property Name="Id_Proveedor" Type="int" Nullable="false" />
+          <Property Name="No_Paquetes" Type="int" />
+          <Property Name="Nombre_Mensajero" Type="varchar" MaxLength="255" />
+          <Property Name="CUI_Mensajero" Type="varchar" MaxLength="255" />
+          <Property Name="Detalle_Ingreso" Type="text" />
+          <Property Name="Fecha_Ingreso" Type="datetime" />
+        </EntityType>
+        <EntityType Name="IngresoProveedor">
+          <Key>
+            <PropertyRef Name="Id_IngresoProveedor" />
+          </Key>
+          <Property Name="Id_IngresoProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo_IngresoProveedor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id_Proveedor" Type="int" Nullable="false" />
+          <Property Name="Id_HorarioEntrega" Type="int" Nullable="false" />
+          <Property Name="Fecha_Ingreso" Type="date" />
+          <Property Name="Fecha_Creacion" Type="datetime" />
+          <Property Name="Detalle_Ingreso" Type="text" />
+          <Property Name="Detalle_Producto" Type="text" />
+          <Property Name="No_Paquetes" Type="int" />
+          <Property Name="Elevador" Type="varchar" MaxLength="20" />
+          <Property Name="Aprobada" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Mensajero">
+          <Key>
+            <PropertyRef Name="Id_Mensajero" />
+          </Key>
+          <Property Name="Id_Mensajero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Ingreso" Type="int" />
+          <Property Name="Orden" Type="varchar" MaxLength="100" />
+          <Property Name="Tipo_Ingreso" Type="varchar" MaxLength="100" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" />
+          <Property Name="CUI" Type="varchar" MaxLength="100" />
+          <Property Name="Carnet" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="Id_Modulo" />
+          </Key>
+          <Property Name="Id_Modulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_TipoUsuario" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Enlace" Type="varchar" MaxLength="100" />
+          <Property Name="Extra" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Nivel">
+          <Key>
+            <PropertyRef Name="Id_Nivel" />
+          </Key>
+          <Property Name="Id_Nivel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ubicacion" Type="varchar" MaxLength="100" />
+          <Property Name="Descripcion" Type="text" />
+          <Property Name="Estado" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Oficina">
+          <Key>
+            <PropertyRef Name="Id_Oficina" />
+          </Key>
+          <Property Name="Id_Oficina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Nivel" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" />
+          <Property Name="Estado" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="Id_Proveedor" />
+          </Key>
+          <Property Name="Id_Proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" />
+          <Property Name="Estado" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="RutaEntrega">
+          <Key>
+            <PropertyRef Name="Id_RutaEntrega" />
+          </Key>
+          <Property Name="Id_RutaEntrega" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Ingreso" Type="int" />
+          <Property Name="Id_SolicitudProveedor" Type="int" />
+          <Property Name="Orden" Type="varchar" MaxLength="100" />
+          <Property Name="Anticipada" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TipoUsuario">
+          <Key>
+            <PropertyRef Name="Id_TipoUsuario" />
+          </Key>
+          <Property Name="Id_TipoUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="100" />
+          <Property Name="Detalle" Type="text" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_TipoUsuario" Type="int" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="100" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="255" />
+          <Property Name="CUI" Type="varchar" MaxLength="100" />
+          <Property Name="Correo" Type="varchar" MaxLength="200" />
+          <Property Name="Telefono" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_DetalleIngresoProveedor_IngresoProveedor">
+          <End Role="IngresoProveedor" Type="Self.IngresoProveedor" Multiplicity="1" />
+          <End Role="DetalleIngresoProveedor" Type="Self.DetalleIngresoProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IngresoProveedor">
+              <PropertyRef Name="Id_IngresoProveedor" />
+            </Principal>
+            <Dependent Role="DetalleIngresoProveedor">
+              <PropertyRef Name="Id_IngresoProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingreso_Empresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Ingreso" Type="Self.Ingreso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id_Empresa" />
+            </Principal>
+            <Dependent Role="Ingreso">
+              <PropertyRef Name="Id_Empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingreso_Proveedor">
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+          <End Role="Ingreso" Type="Self.Ingreso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="Id_Proveedor" />
+            </Principal>
+            <Dependent Role="Ingreso">
+              <PropertyRef Name="Id_Proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IngresoProveedor_HoraEntrega">
+          <End Role="HorarioEntrega" Type="Self.HorarioEntrega" Multiplicity="1" />
+          <End Role="IngresoProveedor" Type="Self.IngresoProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HorarioEntrega">
+              <PropertyRef Name="Id_HorarioEntrega" />
+            </Principal>
+            <Dependent Role="IngresoProveedor">
+              <PropertyRef Name="Id_HorarioEntrega" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IngresoProveedor_Proveedor">
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+          <End Role="IngresoProveedor" Type="Self.IngresoProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="Id_Proveedor" />
+            </Principal>
+            <Dependent Role="IngresoProveedor">
+              <PropertyRef Name="Id_Proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mensajero_Ingreso">
+          <End Role="Ingreso" Type="Self.Ingreso" Multiplicity="0..1" />
+          <End Role="Mensajero" Type="Self.Mensajero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingreso">
+              <PropertyRef Name="Id_Ingreso" />
+            </Principal>
+            <Dependent Role="Mensajero">
+              <PropertyRef Name="Id_Ingreso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modulo_TipoUsuario">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="Id_TipoUsuario" />
+            </Principal>
+            <Dependent Role="Modulo">
+              <PropertyRef Name="Id_TipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oficina_Nivel">
+          <End Role="Nivel" Type="Self.Nivel" Multiplicity="1" />
+          <End Role="Oficina" Type="Self.Oficina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nivel">
+              <PropertyRef Name="Id_Nivel" />
+            </Principal>
+            <Dependent Role="Oficina">
+              <PropertyRef Name="Id_Nivel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RutaEntrega_Ingreso">
+          <End Role="Ingreso" Type="Self.Ingreso" Multiplicity="0..1" />
+          <End Role="RutaEntrega" Type="Self.RutaEntrega" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingreso">
+              <PropertyRef Name="Id_Ingreso" />
+            </Principal>
+            <Dependent Role="RutaEntrega">
+              <PropertyRef Name="Id_Ingreso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RutaEntrega_SolicitudProveedor">
+          <End Role="IngresoProveedor" Type="Self.IngresoProveedor" Multiplicity="0..1" />
+          <End Role="RutaEntrega" Type="Self.RutaEntrega" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IngresoProveedor">
+              <PropertyRef Name="Id_IngresoProveedor" />
+            </Principal>
+            <Dependent Role="RutaEntrega">
+              <PropertyRef Name="Id_SolicitudProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoUsuario">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="Id_TipoUsuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Id_TipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PK_Contacto_Empresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id_Empresa" />
+            </Principal>
+            <Dependent Role="Contacto">
+              <PropertyRef Name="Id_Empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RTS_MensajeriaModelStoreContainer">
+          <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetalleIngresoProveedor" EntityType="Self.DetalleIngresoProveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HorarioEntrega" EntityType="Self.HorarioEntrega" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingreso" EntityType="Self.Ingreso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IngresoProveedor" EntityType="Self.IngresoProveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mensajero" EntityType="Self.Mensajero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modulo" EntityType="Self.Modulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nivel" EntityType="Self.Nivel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oficina" EntityType="Self.Oficina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RutaEntrega" EntityType="Self.RutaEntrega" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DetalleIngresoProveedor_IngresoProveedor" Association="Self.FK_DetalleIngresoProveedor_IngresoProveedor">
+            <End Role="IngresoProveedor" EntitySet="IngresoProveedor" />
+            <End Role="DetalleIngresoProveedor" EntitySet="DetalleIngresoProveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingreso_Empresa" Association="Self.FK_Ingreso_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Ingreso" EntitySet="Ingreso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingreso_Proveedor" Association="Self.FK_Ingreso_Proveedor">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="Ingreso" EntitySet="Ingreso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IngresoProveedor_HoraEntrega" Association="Self.FK_IngresoProveedor_HoraEntrega">
+            <End Role="HorarioEntrega" EntitySet="HorarioEntrega" />
+            <End Role="IngresoProveedor" EntitySet="IngresoProveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IngresoProveedor_Proveedor" Association="Self.FK_IngresoProveedor_Proveedor">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="IngresoProveedor" EntitySet="IngresoProveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mensajero_Ingreso" Association="Self.FK_Mensajero_Ingreso">
+            <End Role="Ingreso" EntitySet="Ingreso" />
+            <End Role="Mensajero" EntitySet="Mensajero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modulo_TipoUsuario" Association="Self.FK_Modulo_TipoUsuario">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Modulo" EntitySet="Modulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oficina_Nivel" Association="Self.FK_Oficina_Nivel">
+            <End Role="Nivel" EntitySet="Nivel" />
+            <End Role="Oficina" EntitySet="Oficina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RutaEntrega_Ingreso" Association="Self.FK_RutaEntrega_Ingreso">
+            <End Role="Ingreso" EntitySet="Ingreso" />
+            <End Role="RutaEntrega" EntitySet="RutaEntrega" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RutaEntrega_SolicitudProveedor" Association="Self.FK_RutaEntrega_SolicitudProveedor">
+            <End Role="IngresoProveedor" EntitySet="IngresoProveedor" />
+            <End Role="RutaEntrega" EntitySet="RutaEntrega" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoUsuario" Association="Self.FK_TipoUsuario">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="PK_Contacto_Empresa" Association="Self.PK_Contacto_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Contacto" EntitySet="Contacto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RTS_MensajeriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Contacto">
+          <Key>
+            <PropertyRef Name="Id_Contacto" />
+          </Key>
+          <Property Name="Id_Contacto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Empresa" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CUI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Notificar" Type="Int32" />
+          <Property Name="Estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empresa" Relationship="Self.PK_Contacto_Empresa" FromRole="Contacto" ToRole="Empresa" />
+        </EntityType>
+        <EntityType Name="DetalleIngresoProveedor">
+          <Key>
+            <PropertyRef Name="Id_DetalleIngresoProveedor" />
+          </Key>
+          <Property Name="Id_DetalleIngresoProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_IngresoProveedor" Type="Int32" Nullable="false" />
+          <Property Name="CodigoDetalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Detalle_Rechazo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Hora_Entrega" Type="Time" Precision="7" />
+          <Property Name="Estado_Entrega" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IngresoProveedor" Relationship="Self.FK_DetalleIngresoProveedor_IngresoProveedor" FromRole="DetalleIngresoProveedor" ToRole="IngresoProveedor" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="Id_Empresa" />
+          </Key>
+          <Property Name="Id_Empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TipoEmpresa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Contacto" Relationship="Self.PK_Contacto_Empresa" FromRole="Empresa" ToRole="Contacto" />
+          <NavigationProperty Name="Ingreso" Relationship="Self.FK_Ingreso_Empresa" FromRole="Empresa" ToRole="Ingreso" />
+        </EntityType>
+        <EntityType Name="HorarioEntrega">
+          <Key>
+            <PropertyRef Name="Id_HorarioEntrega" />
+          </Key>
+          <Property Name="Id_HorarioEntrega" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hora_Entrega" Type="Time" Precision="7" />
+          <Property Name="Hora_Salida" Type="Time" Precision="7" />
+          <Property Name="Estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IngresoProveedor" Relationship="Self.FK_IngresoProveedor_HoraEntrega" FromRole="HorarioEntrega" ToRole="IngresoProveedor" />
+        </EntityType>
+        <EntityType Name="Ingreso">
+          <Key>
+            <PropertyRef Name="Id_Ingreso" />
+          </Key>
+          <Property Name="Id_Ingreso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo_Ingreso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Empresa" Type="Int32" Nullable="false" />
+          <Property Name="Id_Proveedor" Type="Int32" Nullable="false" />
+          <Property Name="No_Paquetes" Type="Int32" />
+          <Property Name="Nombre_Mensajero" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CUI_Mensajero" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Detalle_Ingreso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Ingreso" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Empresa" Relationship="Self.FK_Ingreso_Empresa" FromRole="Ingreso" ToRole="Empresa" />
+          <NavigationProperty Name="Proveedor" Relationship="Self.FK_Ingreso_Proveedor" FromRole="Ingreso" ToRole="Proveedor" />
+          <NavigationProperty Name="Mensajero" Relationship="Self.FK_Mensajero_Ingreso" FromRole="Ingreso" ToRole="Mensajero" />
+          <NavigationProperty Name="RutaEntrega" Relationship="Self.FK_RutaEntrega_Ingreso" FromRole="Ingreso" ToRole="RutaEntrega" />
+        </EntityType>
+        <EntityType Name="IngresoProveedor">
+          <Key>
+            <PropertyRef Name="Id_IngresoProveedor" />
+          </Key>
+          <Property Name="Id_IngresoProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo_IngresoProveedor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Proveedor" Type="Int32" Nullable="false" />
+          <Property Name="Id_HorarioEntrega" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Ingreso" Type="DateTime" Precision="0" />
+          <Property Name="Fecha_Creacion" Type="DateTime" Precision="3" />
+          <Property Name="Detalle_Ingreso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Detalle_Producto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="No_Paquetes" Type="Int32" />
+          <Property Name="Elevador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Aprobada" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DetalleIngresoProveedor" Relationship="Self.FK_DetalleIngresoProveedor_IngresoProveedor" FromRole="IngresoProveedor" ToRole="DetalleIngresoProveedor" />
+          <NavigationProperty Name="HorarioEntrega" Relationship="Self.FK_IngresoProveedor_HoraEntrega" FromRole="IngresoProveedor" ToRole="HorarioEntrega" />
+          <NavigationProperty Name="Proveedor" Relationship="Self.FK_IngresoProveedor_Proveedor" FromRole="IngresoProveedor" ToRole="Proveedor" />
+          <NavigationProperty Name="RutaEntrega" Relationship="Self.FK_RutaEntrega_SolicitudProveedor" FromRole="IngresoProveedor" ToRole="RutaEntrega" />
+        </EntityType>
+        <EntityType Name="Mensajero">
+          <Key>
+            <PropertyRef Name="Id_Mensajero" />
+          </Key>
+          <Property Name="Id_Mensajero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Ingreso" Type="Int32" />
+          <Property Name="Orden" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_Ingreso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CUI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Carnet" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ingreso" Relationship="Self.FK_Mensajero_Ingreso" FromRole="Mensajero" ToRole="Ingreso" />
+        </EntityType>
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="Id_Modulo" />
+          </Key>
+          <Property Name="Id_Modulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_TipoUsuario" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Enlace" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Extra" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TipoUsuario" Relationship="Self.FK_Modulo_TipoUsuario" FromRole="Modulo" ToRole="TipoUsuario" />
+        </EntityType>
+        <EntityType Name="Nivel">
+          <Key>
+            <PropertyRef Name="Id_Nivel" />
+          </Key>
+          <Property Name="Id_Nivel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ubicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Oficina" Relationship="Self.FK_Oficina_Nivel" FromRole="Nivel" ToRole="Oficina" />
+        </EntityType>
+        <EntityType Name="Oficina">
+          <Key>
+            <PropertyRef Name="Id_Oficina" />
+          </Key>
+          <Property Name="Id_Oficina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Nivel" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Nivel" Relationship="Self.FK_Oficina_Nivel" FromRole="Oficina" ToRole="Nivel" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="Id_Proveedor" />
+          </Key>
+          <Property Name="Id_Proveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ingreso" Relationship="Self.FK_Ingreso_Proveedor" FromRole="Proveedor" ToRole="Ingreso" />
+          <NavigationProperty Name="IngresoProveedor" Relationship="Self.FK_IngresoProveedor_Proveedor" FromRole="Proveedor" ToRole="IngresoProveedor" />
+        </EntityType>
+        <EntityType Name="RutaEntrega">
+          <Key>
+            <PropertyRef Name="Id_RutaEntrega" />
+          </Key>
+          <Property Name="Id_RutaEntrega" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Ingreso" Type="Int32" />
+          <Property Name="Id_SolicitudProveedor" Type="Int32" />
+          <Property Name="Orden" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Anticipada" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ingreso" Relationship="Self.FK_RutaEntrega_Ingreso" FromRole="RutaEntrega" ToRole="Ingreso" />
+          <NavigationProperty Name="IngresoProveedor" Relationship="Self.FK_RutaEntrega_SolicitudProveedor" FromRole="RutaEntrega" ToRole="IngresoProveedor" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TipoUsuario">
+          <Key>
+            <PropertyRef Name="Id_TipoUsuario" />
+          </Key>
+          <Property Name="Id_TipoUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Modulo" Relationship="Self.FK_Modulo_TipoUsuario" FromRole="TipoUsuario" ToRole="Modulo" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_TipoUsuario" FromRole="TipoUsuario" ToRole="Usuario" />
+          <Property Name="Detalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_TipoUsuario" Type="Int32" Nullable="false" />
+          <Property Name="Usuario1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCompleto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CUI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TipoUsuario" Relationship="Self.FK_TipoUsuario" FromRole="Usuario" ToRole="TipoUsuario" />
+        </EntityType>
+        <Association Name="PK_Contacto_Empresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id_Empresa" />
+            </Principal>
+            <Dependent Role="Contacto">
+              <PropertyRef Name="Id_Empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleIngresoProveedor_IngresoProveedor">
+          <End Role="IngresoProveedor" Type="Self.IngresoProveedor" Multiplicity="1" />
+          <End Role="DetalleIngresoProveedor" Type="Self.DetalleIngresoProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IngresoProveedor">
+              <PropertyRef Name="Id_IngresoProveedor" />
+            </Principal>
+            <Dependent Role="DetalleIngresoProveedor">
+              <PropertyRef Name="Id_IngresoProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingreso_Empresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Ingreso" Type="Self.Ingreso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id_Empresa" />
+            </Principal>
+            <Dependent Role="Ingreso">
+              <PropertyRef Name="Id_Empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IngresoProveedor_HoraEntrega">
+          <End Role="HorarioEntrega" Type="Self.HorarioEntrega" Multiplicity="1" />
+          <End Role="IngresoProveedor" Type="Self.IngresoProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HorarioEntrega">
+              <PropertyRef Name="Id_HorarioEntrega" />
+            </Principal>
+            <Dependent Role="IngresoProveedor">
+              <PropertyRef Name="Id_HorarioEntrega" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingreso_Proveedor">
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+          <End Role="Ingreso" Type="Self.Ingreso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="Id_Proveedor" />
+            </Principal>
+            <Dependent Role="Ingreso">
+              <PropertyRef Name="Id_Proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mensajero_Ingreso">
+          <End Role="Ingreso" Type="Self.Ingreso" Multiplicity="0..1" />
+          <End Role="Mensajero" Type="Self.Mensajero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingreso">
+              <PropertyRef Name="Id_Ingreso" />
+            </Principal>
+            <Dependent Role="Mensajero">
+              <PropertyRef Name="Id_Ingreso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RutaEntrega_Ingreso">
+          <End Role="Ingreso" Type="Self.Ingreso" Multiplicity="0..1" />
+          <End Role="RutaEntrega" Type="Self.RutaEntrega" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingreso">
+              <PropertyRef Name="Id_Ingreso" />
+            </Principal>
+            <Dependent Role="RutaEntrega">
+              <PropertyRef Name="Id_Ingreso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IngresoProveedor_Proveedor">
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+          <End Role="IngresoProveedor" Type="Self.IngresoProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="Id_Proveedor" />
+            </Principal>
+            <Dependent Role="IngresoProveedor">
+              <PropertyRef Name="Id_Proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RutaEntrega_SolicitudProveedor">
+          <End Role="IngresoProveedor" Type="Self.IngresoProveedor" Multiplicity="0..1" />
+          <End Role="RutaEntrega" Type="Self.RutaEntrega" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IngresoProveedor">
+              <PropertyRef Name="Id_IngresoProveedor" />
+            </Principal>
+            <Dependent Role="RutaEntrega">
+              <PropertyRef Name="Id_SolicitudProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modulo_TipoUsuario">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="Id_TipoUsuario" />
+            </Principal>
+            <Dependent Role="Modulo">
+              <PropertyRef Name="Id_TipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oficina_Nivel">
+          <End Role="Nivel" Type="Self.Nivel" Multiplicity="1" />
+          <End Role="Oficina" Type="Self.Oficina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nivel">
+              <PropertyRef Name="Id_Nivel" />
+            </Principal>
+            <Dependent Role="Oficina">
+              <PropertyRef Name="Id_Nivel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoUsuario">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="Id_TipoUsuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Id_TipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RTS_MensajeriaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contacto" EntityType="Self.Contacto" />
+          <EntitySet Name="DetalleIngresoProveedor" EntityType="Self.DetalleIngresoProveedor" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" />
+          <EntitySet Name="HorarioEntrega" EntityType="Self.HorarioEntrega" />
+          <EntitySet Name="Ingreso" EntityType="Self.Ingreso" />
+          <EntitySet Name="IngresoProveedor" EntityType="Self.IngresoProveedor" />
+          <EntitySet Name="Mensajero" EntityType="Self.Mensajero" />
+          <EntitySet Name="Modulo" EntityType="Self.Modulo" />
+          <EntitySet Name="Nivel" EntityType="Self.Nivel" />
+          <EntitySet Name="Oficina" EntityType="Self.Oficina" />
+          <EntitySet Name="Proveedor" EntityType="Self.Proveedor" />
+          <EntitySet Name="RutaEntrega" EntityType="Self.RutaEntrega" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="PK_Contacto_Empresa" Association="Self.PK_Contacto_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Contacto" EntitySet="Contacto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleIngresoProveedor_IngresoProveedor" Association="Self.FK_DetalleIngresoProveedor_IngresoProveedor">
+            <End Role="IngresoProveedor" EntitySet="IngresoProveedor" />
+            <End Role="DetalleIngresoProveedor" EntitySet="DetalleIngresoProveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingreso_Empresa" Association="Self.FK_Ingreso_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Ingreso" EntitySet="Ingreso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IngresoProveedor_HoraEntrega" Association="Self.FK_IngresoProveedor_HoraEntrega">
+            <End Role="HorarioEntrega" EntitySet="HorarioEntrega" />
+            <End Role="IngresoProveedor" EntitySet="IngresoProveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingreso_Proveedor" Association="Self.FK_Ingreso_Proveedor">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="Ingreso" EntitySet="Ingreso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mensajero_Ingreso" Association="Self.FK_Mensajero_Ingreso">
+            <End Role="Ingreso" EntitySet="Ingreso" />
+            <End Role="Mensajero" EntitySet="Mensajero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RutaEntrega_Ingreso" Association="Self.FK_RutaEntrega_Ingreso">
+            <End Role="Ingreso" EntitySet="Ingreso" />
+            <End Role="RutaEntrega" EntitySet="RutaEntrega" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IngresoProveedor_Proveedor" Association="Self.FK_IngresoProveedor_Proveedor">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="IngresoProveedor" EntitySet="IngresoProveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RutaEntrega_SolicitudProveedor" Association="Self.FK_RutaEntrega_SolicitudProveedor">
+            <End Role="IngresoProveedor" EntitySet="IngresoProveedor" />
+            <End Role="RutaEntrega" EntitySet="RutaEntrega" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modulo_TipoUsuario" Association="Self.FK_Modulo_TipoUsuario">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Modulo" EntitySet="Modulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oficina_Nivel" Association="Self.FK_Oficina_Nivel">
+            <End Role="Nivel" EntitySet="Nivel" />
+            <End Role="Oficina" EntitySet="Oficina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoUsuario" Association="Self.FK_TipoUsuario">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RTS_MensajeriaModelStoreContainer" CdmEntityContainer="RTS_MensajeriaEntities">
+          <EntitySetMapping Name="Contacto">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.Contacto">
+              <MappingFragment StoreEntitySet="Contacto">
+                <ScalarProperty Name="Id_Contacto" ColumnName="Id_Contacto" />
+                <ScalarProperty Name="Id_Empresa" ColumnName="Id_Empresa" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CUI" ColumnName="CUI" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Notificar" ColumnName="Notificar" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetalleIngresoProveedor">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.DetalleIngresoProveedor">
+              <MappingFragment StoreEntitySet="DetalleIngresoProveedor">
+                <ScalarProperty Name="Id_DetalleIngresoProveedor" ColumnName="Id_DetalleIngresoProveedor" />
+                <ScalarProperty Name="Id_IngresoProveedor" ColumnName="Id_IngresoProveedor" />
+                <ScalarProperty Name="CodigoDetalle" ColumnName="CodigoDetalle" />
+                <ScalarProperty Name="Detalle_Rechazo" ColumnName="Detalle_Rechazo" />
+                <ScalarProperty Name="Hora_Entrega" ColumnName="Hora_Entrega" />
+                <ScalarProperty Name="Estado_Entrega" ColumnName="Estado_Entrega" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="Id_Empresa" ColumnName="Id_Empresa" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="TipoEmpresa" ColumnName="TipoEmpresa" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HorarioEntrega">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.HorarioEntrega">
+              <MappingFragment StoreEntitySet="HorarioEntrega">
+                <ScalarProperty Name="Id_HorarioEntrega" ColumnName="Id_HorarioEntrega" />
+                <ScalarProperty Name="Hora_Entrega" ColumnName="Hora_Entrega" />
+                <ScalarProperty Name="Hora_Salida" ColumnName="Hora_Salida" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingreso">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.Ingreso">
+              <MappingFragment StoreEntitySet="Ingreso">
+                <ScalarProperty Name="Id_Ingreso" ColumnName="Id_Ingreso" />
+                <ScalarProperty Name="Codigo_Ingreso" ColumnName="Codigo_Ingreso" />
+                <ScalarProperty Name="Id_Empresa" ColumnName="Id_Empresa" />
+                <ScalarProperty Name="Id_Proveedor" ColumnName="Id_Proveedor" />
+                <ScalarProperty Name="No_Paquetes" ColumnName="No_Paquetes" />
+                <ScalarProperty Name="Nombre_Mensajero" ColumnName="Nombre_Mensajero" />
+                <ScalarProperty Name="CUI_Mensajero" ColumnName="CUI_Mensajero" />
+                <ScalarProperty Name="Detalle_Ingreso" ColumnName="Detalle_Ingreso" />
+                <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IngresoProveedor">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.IngresoProveedor">
+              <MappingFragment StoreEntitySet="IngresoProveedor">
+                <ScalarProperty Name="Id_IngresoProveedor" ColumnName="Id_IngresoProveedor" />
+                <ScalarProperty Name="Codigo_IngresoProveedor" ColumnName="Codigo_IngresoProveedor" />
+                <ScalarProperty Name="Id_Proveedor" ColumnName="Id_Proveedor" />
+                <ScalarProperty Name="Id_HorarioEntrega" ColumnName="Id_HorarioEntrega" />
+                <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+                <ScalarProperty Name="Fecha_Creacion" ColumnName="Fecha_Creacion" />
+                <ScalarProperty Name="Detalle_Ingreso" ColumnName="Detalle_Ingreso" />
+                <ScalarProperty Name="Detalle_Producto" ColumnName="Detalle_Producto" />
+                <ScalarProperty Name="No_Paquetes" ColumnName="No_Paquetes" />
+                <ScalarProperty Name="Elevador" ColumnName="Elevador" />
+                <ScalarProperty Name="Aprobada" ColumnName="Aprobada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mensajero">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.Mensajero">
+              <MappingFragment StoreEntitySet="Mensajero">
+                <ScalarProperty Name="Id_Mensajero" ColumnName="Id_Mensajero" />
+                <ScalarProperty Name="Id_Ingreso" ColumnName="Id_Ingreso" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="Tipo_Ingreso" ColumnName="Tipo_Ingreso" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CUI" ColumnName="CUI" />
+                <ScalarProperty Name="Carnet" ColumnName="Carnet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modulo">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.Modulo">
+              <MappingFragment StoreEntitySet="Modulo">
+                <ScalarProperty Name="Id_Modulo" ColumnName="Id_Modulo" />
+                <ScalarProperty Name="Id_TipoUsuario" ColumnName="Id_TipoUsuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Enlace" ColumnName="Enlace" />
+                <ScalarProperty Name="Extra" ColumnName="Extra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nivel">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.Nivel">
+              <MappingFragment StoreEntitySet="Nivel">
+                <ScalarProperty Name="Id_Nivel" ColumnName="Id_Nivel" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oficina">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.Oficina">
+              <MappingFragment StoreEntitySet="Oficina">
+                <ScalarProperty Name="Id_Oficina" ColumnName="Id_Oficina" />
+                <ScalarProperty Name="Id_Nivel" ColumnName="Id_Nivel" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedor">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.Proveedor">
+              <MappingFragment StoreEntitySet="Proveedor">
+                <ScalarProperty Name="Id_Proveedor" ColumnName="Id_Proveedor" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RutaEntrega">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.RutaEntrega">
+              <MappingFragment StoreEntitySet="RutaEntrega">
+                <ScalarProperty Name="Id_RutaEntrega" ColumnName="Id_RutaEntrega" />
+                <ScalarProperty Name="Id_Ingreso" ColumnName="Id_Ingreso" />
+                <ScalarProperty Name="Id_SolicitudProveedor" ColumnName="Id_SolicitudProveedor" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="Anticipada" ColumnName="Anticipada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoUsuario">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.TipoUsuario">
+              <MappingFragment StoreEntitySet="TipoUsuario">
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="Id_TipoUsuario" ColumnName="Id_TipoUsuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="RTS_MensajeriaModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Id_TipoUsuario" ColumnName="Id_TipoUsuario" />
+                <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="CUI" ColumnName="CUI" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

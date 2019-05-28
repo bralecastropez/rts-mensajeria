@@ -15,14 +15,14 @@ namespace RTS_Mensajeria.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "ERP Mensajeria, en desarrollo.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Brandon Alexander";
 
             return View();
         }

@@ -11,7 +11,6 @@
     @Styles.Render("~/bundles/fontawesome")
 
     <style type="text/css">
-        /* Only for snippet */
         .double-nav .breadcrumb-dn {
             color: #fff;
         }
@@ -33,7 +32,7 @@
                 <!-- Logo -->
                 <li style="height: 121px !important;">
                     <div class="logo-wrapper waves-light" style="height: 121px !important;">
-                        <a href="#"><img src="~/Content/resources/img/LogoGTO.png" class="img-fluid flex-center"/></a>
+                        <a href="@Url.Action("Index", "Home")"><img src="~/Content/resources/img/LogoGTO.png" class="img-fluid flex-center"/></a>
                     </div>
                 </li>
                 <li>
@@ -84,6 +83,9 @@
                                     <li>
                                         <a href="#" class="waves-effect">Administrar oficinas</a>
                                     </li>
+                                    <li>
+                                        <a href="#" class="waves-effect">Reactivar oficinas</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -93,6 +95,9 @@
                                 <ul>
                                     <li>
                                         <a href="#" class="waves-effect">Administrar empresas</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="waves-effect">Reactivar empresas</a>
                                     </li>
                                 </ul>
                             </div>
@@ -107,6 +112,9 @@
                                     <li>
                                         <a href="#" class="waves-effect">Administrar usuarios</a>
                                     </li>
+                                    <li>
+                                        <a href="#" class="waves-effect">Reactivar usuarios</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -116,6 +124,9 @@
                                 <ul>
                                     <li>
                                         <a href="#" class="waves-effect">Administrar contactos</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="waves-effect">Reactivar contactos</a>
                                     </li>
                                 </ul>
                             </div>
@@ -167,7 +178,7 @@
             </div>
             <!-- Breadcrumb-->
             <div class="breadcrumb-dn mr-auto">
-                <p>ERP Mensajeria</p>
+                <p><a class="text-decoration-none" href="@Url.Action("Index", "Home")"> ERP Mensajeria</a></p>
             </div>
             @Html.Partial("_LoginPartial")
         </nav>

@@ -110,8 +110,40 @@ namespace RTS_Mensajeria.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             TipoUsuario tipoUsuario = db.TipoUsuario.Find(id);
-            db.TipoUsuario.Remove(tipoUsuario);
+            tipoUsuario.Estado = "Inactivo";
+            db.Entry(tipoUsuario).State = EntityState.Modified;
             db.SaveChanges();
+            /*db.TipoUsuario.Remove(tipoUsuario);
+            db.SaveChanges();*/
+            return RedirectToAction("Index");
+        }
+        
+        // GET: TipoUsuarios/Active/5
+        public ActionResult Active(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TipoUsuario tipoUsuario = db.TipoUsuario.Find(id);
+            if (tipoUsuario == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tipoUsuario);
+        }
+
+        // POST: TipoUsuarios/Active/5
+        [HttpPost, ActionName("Active")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ActiveConfirmed(int id)
+        {
+            TipoUsuario tipoUsuario = db.TipoUsuario.Find(id);
+            tipoUsuario.Estado = "Activo";
+            db.Entry(tipoUsuario).State = EntityState.Modified;
+            db.SaveChanges();
+            /*db.TipoUsuario.Remove(tipoUsuario);
+            db.SaveChanges();*/
             return RedirectToAction("Index");
         }
 

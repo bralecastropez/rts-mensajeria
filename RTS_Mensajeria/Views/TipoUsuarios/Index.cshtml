@@ -28,7 +28,7 @@ else
                 <br />
                 <div class="row">
                     <div class="col-md-10">
-                        <h2>Listado de tipos de usuario</h2>
+                        <h2>Listado de tipos de usuario activos</h2>
                     </div>
                     <div class="col-md-2">
                         <a class="btn btn-default btn-small btn-rounded" href="@Url.Action("Create", "TipoUsuarios")">
@@ -46,35 +46,32 @@ else
                             <th>
                                 @Html.DisplayNameFor(model => model.Detalle)
                             </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Estado)
-                            </th>
                             <th>Acciones</th>
                         </tr>
                         @foreach (var item in Model)
-                {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Nombre)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Detalle)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Estado)
-                                </td>
-                                <td>
-                                    <a class="btn btn-sm btn-rounded green" href="@Url.Action("Edit", "TipoUsuarios", new { id = item.Id_TipoUsuario })">
-                                        <i class="fa fa-edit"></i> Editar
-                                    </a>
-                                    <a class="btn btn-sm btn-rounded blue" href="@Url.Action("Details", "TipoUsuarios", new { id = item.Id_TipoUsuario })">
-                                        <i class="fa fa-eye"></i> Detalle
-                                    </a>
-                                    <a class="btn btn-sm btn-rounded red" href="@Url.Action("Delete", "TipoUsuarios", new { id = item.Id_TipoUsuario })">
-                                        <i class="fa fa-trash"></i> Eliminar
-                                    </a>
-                                </td>
-                            </tr>
+                        {
+                            if (item.Estado == "Activo")
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nombre)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Detalle)
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-rounded green" href="@Url.Action("Edit", "TipoUsuarios", new { id = item.Id_TipoUsuario })">
+                                            <i class="fa fa-edit"></i> Editar
+                                        </a>
+                                        <a class="btn btn-sm btn-rounded blue" href="@Url.Action("Details", "TipoUsuarios", new { id = item.Id_TipoUsuario })">
+                                            <i class="fa fa-eye"></i> Detalle
+                                        </a>
+                                        <a class="btn btn-sm btn-rounded red" href="@Url.Action("Delete", "TipoUsuarios", new { id = item.Id_TipoUsuario })">
+                                            <i class="fa fa-trash"></i> Eliminar
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
                         }
                     </table>
                 </div>
@@ -82,4 +79,52 @@ else
         </div>
 
     </div>
+
+        <div class="card card-cascade narrower">
+
+            <div class="px-4">
+                <div class="table-wrapper">
+                    <br />
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h2>Listado de tipos de usuario inactivos</h2>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="table-responsive ">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Nombre)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Detalle)
+                                </th>
+                                <th>Acciones</th>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                if (item.Estado == "Inactivo")
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nombre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Detalle)
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-sm btn-secondary" href="@Url.Action("Active", "TipoUsuarios", new { id = item.Id_TipoUsuario })">
+                                                <i class="fa fa-power-off"></i> Activar
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
 }

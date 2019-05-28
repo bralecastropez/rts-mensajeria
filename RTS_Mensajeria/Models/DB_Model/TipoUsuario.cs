@@ -25,7 +25,7 @@ namespace RTS_Mensajeria.Models.DB_Model
     
         public int Id_TipoUsuario { get; set; }
 
-        [StringLength(20)]
+        [StringLength(50)]
         [Display(Name = "Nombre")]
         [Required(ErrorMessage = "Debe ingresar el nombre del tipo de usuario")]
         public string Nombre { get; set; }

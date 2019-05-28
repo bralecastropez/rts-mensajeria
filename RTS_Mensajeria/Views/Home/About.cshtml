@@ -1,7 +1,47 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Acerca de";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+    <div class="card card-cascade narrower">
+        <div class="view view-cascade primary-color narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+            <h4 class="ml-3 mb-2 mb-sm-0 pt-1 white-text">
+                <span><a href="@Url.Action("Index","Home")" class="text-decoration-none white-text"><i class="fa fa-home"></i> Inicio</a></span>
+                <span>/</span>
+                <span><i class="fa fa-comments"></i> Soporte</span>
+            </h4>
+            <div class="mr-3">
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fas fa-info-circle mt-0"></i>
+                </button>
+            </div>
+        </div>
+        <div class="px-4">
+            <div class="table-wrapper">
+                <br />
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2>Soporte de producto</h2>
+                    </div>
+                </div>
+                <br />
+                <div class="my-content">
+                    <h3>@ViewBag.Message</h3>
+                    <br />
+
+                    <address>
+                        <p>
+                            Gestiona y administra las recepciones y entregas en tu edificio. En la versión preliminar podrás encontrar opciones de gestion de edificios, niveles, empresas y oficinas. También creacion de datos de registro para controlar las entregas y recepciones en oficina, además de un control de rutas de entrega y horarios personalizados.
+                        </p>
+                    </address>
+
+
+
+                    <address>
+                        <strong>Soporte:</strong>   <a href="mailto:info@dynamicsprogressivesystems.com">Info</a><br />
+                        <strong>Marketing:</strong> <a href="mailto:works@dynamicsprogressivesystems.com">Dynamics Works</a>
+                    </address>
+                </div>
+            </div>
+        </div>
+
+    </div>

@@ -11,7 +11,9 @@ namespace RTS_Mensajeria.Models.DB_Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Empresa
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,16 +21,35 @@ namespace RTS_Mensajeria.Models.DB_Model
         {
             this.Contacto = new HashSet<Contacto>();
             this.Ingreso = new HashSet<Ingreso>();
+            this.Oficina = new HashSet<Oficina>();
         }
     
         public int Id_Empresa { get; set; }
+        public Nullable<int> Id_Usuario { get; set; }
+
+        [StringLength(200)]
+        [Display(Name = "Nombre")]
+        [Required(ErrorMessage = "Debe ingresar el nombre de la empresa")]
         public string Nombre { get; set; }
+
+
+        //Oficina, Comercial, Administración
+        [StringLength(200)]
+        [DefaultValue("Oficina")]
+        [Display(Name = "Tipo de empresa")]
+        [Required(ErrorMessage = "Debe ingresar el tipo de empresa")]
         public string TipoEmpresa { get; set; }
+
+        [DefaultValue("Activo")]
+        [StringLength(8, MinimumLength = 6)]
         public string Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contacto> Contacto { get; set; }
+        public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ingreso> Ingreso { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Oficina> Oficina { get; set; }
     }
 }

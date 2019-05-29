@@ -11,14 +11,30 @@ namespace RTS_Mensajeria.Models.DB_Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Oficina
     {
         public int Id_Oficina { get; set; }
         public int Id_Nivel { get; set; }
+        public Nullable<int> Id_Empresa { get; set; }
+
+        [Display(Name = "Ocupada")]
+        [DefaultValue(0)]
+        [Required(ErrorMessage = "Debe seleccionar si está ocupada o no")]
+        public Nullable<int> Ocupada { get; set; }
+
+        [StringLength(200)]
+        [Display(Name = "Nombre")]
+        [Required(ErrorMessage = "Debe ingresar nombre de la oficina")]
         public string Nombre { get; set; }
+
+        [DefaultValue("Activo")]
+        [StringLength(8, MinimumLength = 6)]
         public string Estado { get; set; }
     
+        public virtual Empresa Empresa { get; set; }
         public virtual Nivel Nivel { get; set; }
     }
 }

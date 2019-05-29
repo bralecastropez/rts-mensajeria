@@ -37,7 +37,6 @@ namespace RTS_Mensajeria.Models.DB_Model
         public virtual DbSet<Oficina> Oficina { get; set; }
         public virtual DbSet<Proveedor> Proveedor { get; set; }
         public virtual DbSet<RutaEntrega> RutaEntrega { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TipoUsuario> TipoUsuario { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
     }

@@ -28,26 +28,10 @@ CREATE TABLE HorarioEntrega (
 	CONSTRAINT PK_HorarioEntrega PRIMARY KEY (Id_HorarioEntrega)
 );
 
-CREATE TABLE Oficina (
-	Id_Oficina INT IDENTITY (1, 1) NOT NULL,
-	Id_Nivel INT NOT NULL,
-	Nombre VARCHAR (255) DEFAULT 'Oficina', 
-	Estado VARCHAR (100) DEFAULT 'Activo', /*Activo, Inactivo*/
-	CONSTRAINT PK_Oficina PRIMARY KEY (Id_Oficina),
-	CONSTRAINT FK_Oficina_Nivel FOREIGN KEY (Id_Nivel) REFERENCES Nivel (Id_Nivel)
-);
-
-CREATE TABLE Empresa (
-	Id_Empresa INT IDENTITY (1, 1) NOT NULL,
-	Nombre VARCHAR (255) DEFAULT NULL,
-	TipoEmpresa VARCHAR (255) DEFAULT 'Oficina', /*Oficina, Comercial, Administración*/
-	Estado VARCHAR (100) DEFAULT 'Activo', /*Activo, Inactivo*/
-	CONSTRAINT PK_Emmpresa PRIMARY KEY (Id_Empresa)
-);
-
 CREATE TABLE TipoUsuario (
 	Id_TipoUsuario INT IDENTITY (1, 1) NOT NULL,
 	Nombre VARCHAR (100) NOT NULL,
+	Detalle TEXT,
 	Estado VARCHAR (100) DEFAULT 'Activo', /*Activo, Inactivo*/
 	CONSTRAINT PK_TipoUsuario PRIMARY KEY (Id_TipoUsuario)
 );
@@ -69,6 +53,28 @@ CREATE Table Usuario (
 	Telefono VARCHAR (200) DEFAULT NULL,
 	CONSTRAINT PK_Usuario PRIMARY KEY (Id_Usuario),
 	ConSTRAINT FK_TipoUsuario FOREIGN KEY (Id_TipoUsuario) REFERENCES TipoUsuario (Id_TipoUsuario)
+);
+
+CREATE TABLE Empresa (
+	Id_Empresa INT IDENTITY (1, 1) NOT NULL,
+	Id_Usuario INT,
+	Nombre VARCHAR (255) DEFAULT NULL,
+	TipoEmpresa VARCHAR (255) DEFAULT 'Oficina', /*Oficina, Comercial, Administración*/
+	Estado VARCHAR (100) DEFAULT 'Activo', /*Activo, Inactivo*/
+	CONSTRAINT PK_Empresa PRIMARY KEY (Id_Empresa),
+	CONSTRAINT FK_Empresa_Usuario FOREIGN KEY (Id_Usuario) REFERENCES Usuario (Id_Usuario)
+);
+
+CREATE TABLE Oficina (
+	Id_Oficina INT IDENTITY (1, 1) NOT NULL,
+	Id_Nivel INT NOT NULL,
+	Id_Empresa INT,
+	Ocupada INT DEFAULT 0,
+	Nombre VARCHAR (255) DEFAULT 'Oficina', 
+	Estado VARCHAR (100) DEFAULT 'Activo', /*Activo, Inactivo*/
+	CONSTRAINT PK_Oficina PRIMARY KEY (Id_Oficina),
+	CONSTRAINT FK_Oficina_Nivel FOREIGN KEY (Id_Nivel) REFERENCES Nivel (Id_Nivel),
+	CONSTRAINT FK_Oficina_Empresa FOREIGN KEY (Id_Empresa) REFERENCES Empresa (Id_Empresa)
 );
 
 CREATE TABLE Contacto (
@@ -94,6 +100,7 @@ CREATE TABLE IngresoProveedor (
 	Id_IngresoProveedor INT IDENTITY (1, 1) NOT NULL,
 	Codigo_IngresoProveedor VARCHAR (100) NOT NULL,
 	Id_Proveedor INT NOT NULL,
+	Id_Usuario INT,
 	Id_HorarioEntrega INT NOT NULL,
 	Fecha_Ingreso DATE,
 	Fecha_Creacion DATETIME DEFAULT GETDATE(),
@@ -104,7 +111,8 @@ CREATE TABLE IngresoProveedor (
 	Aprobada VARCHAR (20) DEFAULT 'No',
 	CONSTRAINT PK_IngresoProveedor PRIMARY KEY (Id_IngresoProveedor),
 	CONSTRAINT FK_IngresoProveedor_Proveedor FOREIGN KEY (Id_Proveedor)  REFERENCES Proveedor (Id_Proveedor),
-	CONSTRAINT FK_IngresoProveedor_HoraEntrega FOREIGN KEY (Id_HorarioEntrega) REFERENCES HorarioEntrega (Id_HorarioEntrega)
+	CONSTRAINT FK_IngresoProveedor_HoraEntrega FOREIGN KEY (Id_HorarioEntrega) REFERENCES HorarioEntrega (Id_HorarioEntrega),
+	CONSTRAINT FK_IngresoProveedor_Usuario FOREIGN KEY (Id_Usuario) REFERENCES Usuario (Id_Usuario)
 );
 
 CREATE TABLE DetalleIngresoProveedor (
@@ -134,6 +142,7 @@ CREATE TABLE Ingreso (
 	Codigo_Ingreso VARCHAR (100) DEFAULT NULL,
 	Id_Empresa INT NOT NULL,
 	Id_Proveedor INT NOT NULL,
+	Id_Usuario INT NOT NULL,
 	No_Paquetes INT DEFAULT 1,
 	Nombre_Mensajero VARCHAR (255) DEFAULT NULL,
 	CUI_Mensajero VARCHAR (255) DEFAULT NULL,
@@ -141,7 +150,8 @@ CREATE TABLE Ingreso (
 	Fecha_Ingreso DATETIME DEFAULT GETDATE(),
 	CONSTRAINT PK_Ingreso PRIMARY KEY (Id_Ingreso),
 	CONSTRAINT FK_Ingreso_Empresa FOREIGN KEY (Id_Empresa) REFERENCES Empresa (Id_Empresa),
-	CONSTRAINT FK_Ingreso_Proveedor FOREIGN KEY (Id_Proveedor) REFERENCES Proveedor (Id_Proveedor)
+	CONSTRAINT FK_Ingreso_Proveedor FOREIGN KEY (Id_Proveedor) REFERENCES Proveedor (Id_Proveedor),
+	CONSTRAINT FK_Ingreso_Usuario FOREIGN KEY (Id_Usuario) REFERENCES Usuario (Id_Usuario)
 );
 
 CREATE TABLE Mensajero (

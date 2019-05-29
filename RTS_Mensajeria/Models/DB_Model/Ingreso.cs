@@ -25,6 +25,7 @@ namespace RTS_Mensajeria.Models.DB_Model
         public string Codigo_Ingreso { get; set; }
         public int Id_Empresa { get; set; }
         public int Id_Proveedor { get; set; }
+        public int Id_Usuario { get; set; }
         public Nullable<int> No_Paquetes { get; set; }
         public string Nombre_Mensajero { get; set; }
         public string CUI_Mensajero { get; set; }
@@ -33,6 +34,7 @@ namespace RTS_Mensajeria.Models.DB_Model
     
         public virtual Empresa Empresa { get; set; }
         public virtual Proveedor Proveedor { get; set; }
+        public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mensajero> Mensajero { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

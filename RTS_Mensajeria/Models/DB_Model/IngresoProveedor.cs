@@ -24,6 +24,7 @@ namespace RTS_Mensajeria.Models.DB_Model
         public int Id_IngresoProveedor { get; set; }
         public string Codigo_IngresoProveedor { get; set; }
         public int Id_Proveedor { get; set; }
+        public Nullable<int> Id_Usuario { get; set; }
         public int Id_HorarioEntrega { get; set; }
         public Nullable<System.DateTime> Fecha_Ingreso { get; set; }
         public Nullable<System.DateTime> Fecha_Creacion { get; set; }
@@ -37,6 +38,7 @@ namespace RTS_Mensajeria.Models.DB_Model
         public virtual ICollection<DetalleIngresoProveedor> DetalleIngresoProveedor { get; set; }
         public virtual HorarioEntrega HorarioEntrega { get; set; }
         public virtual Proveedor Proveedor { get; set; }
+        public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RutaEntrega> RutaEntrega { get; set; }
     }

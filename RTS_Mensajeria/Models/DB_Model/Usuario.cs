@@ -14,6 +14,14 @@ namespace RTS_Mensajeria.Models.DB_Model
     
     public partial class Usuario
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Usuario()
+        {
+            this.Empresa = new HashSet<Empresa>();
+            this.Ingreso = new HashSet<Ingreso>();
+            this.IngresoProveedor = new HashSet<IngresoProveedor>();
+        }
+    
         public int Id_Usuario { get; set; }
         public int Id_TipoUsuario { get; set; }
         public string Usuario1 { get; set; }
@@ -22,6 +30,12 @@ namespace RTS_Mensajeria.Models.DB_Model
         public string Correo { get; set; }
         public string Telefono { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Empresa> Empresa { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ingreso> Ingreso { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<IngresoProveedor> IngresoProveedor { get; set; }
         public virtual TipoUsuario TipoUsuario { get; set; }
     }
 }

@@ -190,9 +190,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EmpresasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NivelesController.cs" />
+    <Compile Include="Controllers\OficinasController.cs" />
     <Compile Include="Controllers\TipoUsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -247,9 +249,6 @@
       <DependentUpon>RTS_Mensajeria_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DB_Model\RutaEntrega.cs">
-      <DependentUpon>RTS_Mensajeria_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB_Model\sysdiagrams.cs">
       <DependentUpon>RTS_Mensajeria_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB_Model\TipoUsuario.cs">
@@ -430,6 +429,7 @@
     <Content Include="Content\resources\font\webfonts\fa-solid-900.ttf" />
     <Content Include="Content\resources\font\webfonts\fa-solid-900.woff" />
     <Content Include="Content\resources\font\webfonts\fa-solid-900.woff2" />
+    <None Include="bundleconfig.json" />
     <EntityDeploy Include="Models\DB_Model\RTS_Mensajeria_Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>RTS_Mensajeria_Model.Designer.cs</LastGenOutput>
@@ -437,7 +437,6 @@
     <Content Include="Models\DB_Model\RTS_Mensajeria_Model.edmx.diagram">
       <DependentUpon>RTS_Mensajeria_Model.edmx</DependentUpon>
     </Content>
-    <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -496,6 +495,18 @@
     <Content Include="Views\Niveles\Index.cshtml" />
     <Content Include="Views\Niveles\Inactive.cshtml" />
     <Content Include="Views\Niveles\Active.cshtml" />
+    <Content Include="Views\Oficinas\Create.cshtml" />
+    <Content Include="Views\Oficinas\Delete.cshtml" />
+    <Content Include="Views\Oficinas\Details.cshtml" />
+    <Content Include="Views\Oficinas\Edit.cshtml" />
+    <Content Include="Views\Oficinas\Index.cshtml" />
+    <Content Include="Views\Oficinas\Active.cshtml" />
+    <Content Include="Views\Oficinas\Inactive.cshtml" />
+    <Content Include="Views\Empresas\Create.cshtml" />
+    <Content Include="Views\Empresas\Delete.cshtml" />
+    <Content Include="Views\Empresas\Details.cshtml" />
+    <Content Include="Views\Empresas\Edit.cshtml" />
+    <Content Include="Views\Empresas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

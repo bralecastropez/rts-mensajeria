@@ -22,10 +22,10 @@ namespace RTS_Mensajeria.Models.DB_Model
             this.Modulo = new HashSet<Modulo>();
             this.Usuario = new HashSet<Usuario>();
         }
-    
+
         public int Id_TipoUsuario { get; set; }
 
-        [StringLength(50)]
+        [StringLength(20)]
         [Display(Name = "Nombre")]
         [Required(ErrorMessage = "Debe ingresar el nombre del tipo de usuario")]
         public string Nombre { get; set; }

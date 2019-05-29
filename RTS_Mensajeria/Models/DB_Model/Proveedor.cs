@@ -11,7 +11,9 @@ namespace RTS_Mensajeria.Models.DB_Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Proveedor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +24,13 @@ namespace RTS_Mensajeria.Models.DB_Model
         }
     
         public int Id_Proveedor { get; set; }
+
+        [Display(Name = "Nombre del proveedor")]
+        [Required(ErrorMessage = "Debe ingresar el nombre del proveedor")]
         public string Nombre { get; set; }
+
+        [DefaultValue("Activo")]
+        [StringLength(8, MinimumLength = 6)]
         public string Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -11,7 +11,9 @@ namespace RTS_Mensajeria.Models.DB_Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Ingreso
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,14 +24,44 @@ namespace RTS_Mensajeria.Models.DB_Model
         }
     
         public int Id_Ingreso { get; set; }
+
+        [Display(Name = "Código ingreso")]
+        [DefaultValue("Co-In")]
         public string Codigo_Ingreso { get; set; }
+
+        [DisplayName("Empresa")]
+        [Required(ErrorMessage = "Debe seleccionar la empresa")]
         public int Id_Empresa { get; set; }
+
+        [DisplayName("Proveedor")]
+        [Required(ErrorMessage = "Debe seleccionar el proveedor")]
         public int Id_Proveedor { get; set; }
         public int Id_Usuario { get; set; }
+
+        [Display(Name = "Número de paquetes")]
+        [Required(ErrorMessage = "Debe ingresar la cantidad de paquetes")]
         public Nullable<int> No_Paquetes { get; set; }
+
+        [StringLength(100, MinimumLength = 5)]
+        [Display(Name = "Nombre del mensajero")]
+        [Required(ErrorMessage = "Debe ingresar el nombre del mensajero")]
         public string Nombre_Mensajero { get; set; }
+
+        [Display(Name = "No. DPI/CUI")]
+        [StringLength(20, MinimumLength = 13)]
+        [Required(ErrorMessage = "Debe ingresar el documento de identificación del mensajero")]
         public string CUI_Mensajero { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Descripción del ingreso")]
+        [Required(ErrorMessage = "Debe ingresar la descripción del ingreso")]
         public string Detalle_Ingreso { get; set; }
+
+        //Ingresar fecha por defecto, del servidor no del cliente
+        [DataType(DataType.Date)]
+        [Display(Name = "Fecha de creación")]
+        [Required(ErrorMessage = "Debe ingresar la fecha de ingreso")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Fecha_Ingreso { get; set; }
     
         public virtual Empresa Empresa { get; set; }

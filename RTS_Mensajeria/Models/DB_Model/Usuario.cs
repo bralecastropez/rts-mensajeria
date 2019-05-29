@@ -11,7 +11,8 @@ namespace RTS_Mensajeria.Models.DB_Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,11 +24,34 @@ namespace RTS_Mensajeria.Models.DB_Model
         }
     
         public int Id_Usuario { get; set; }
+
+        [Display(Name = "Tipo de usuario")]
+        [Required(ErrorMessage = "Debe seleccionar el tipo de usuario")]
         public int Id_TipoUsuario { get; set; }
+
+        //Ingresar el dato desde el modulo user
         public string Usuario1 { get; set; }
+
+        [StringLength(100, MinimumLength = 5)]
+        [Display(Name = "Nombre completo")]
+        [Required(ErrorMessage = "Debe ingresar el nombre del usuario")]
         public string NombreCompleto { get; set; }
+
+        [StringLength(20, MinimumLength = 13)]
+        [Display(Name = "No. DPI/CUI")]
+        [Required(ErrorMessage = "Debe ingresar el documento de identificación del contacto")]
         public string CUI { get; set; }
+
+        /*[RegularExpression(@"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$",
+            ErrorMessage = "El formato del correo es inválido.")]*/
+        [EmailAddress]
+        [StringLength(100)]
+        [Display(Name = "Correo electrónico")]
         public string Correo { get; set; }
+
+        [Phone]
+        [StringLength(100)]
+        [Display(Name = "Teléfono")]
         public string Telefono { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -11,14 +11,35 @@ namespace RTS_Mensajeria.Models.DB_Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class DetalleIngresoProveedor
     {
         public int Id_DetalleIngresoProveedor { get; set; }
+
+        [Display(Name = "Solicitud de ingreso")]
+        [Required(ErrorMessage = "Debe seleccionar una solicitud de ingreso")]
         public int Id_IngresoProveedor { get; set; }
+
+        [Display(Name = "Código unico")]
+        [DefaultValue("De-In-Pro")]
         public string CodigoDetalle { get; set; }
+
+        [Display(Name = "Detalle del rechazo")]
+        [Required(ErrorMessage = "Debe seleccionar una solicitud de ingreso")]
         public string Detalle_Rechazo { get; set; }
+
+        [DataType(DataType.Time)]
+        [Display(Name = "Hora de ingreso")]
+        //[Required(ErrorMessage = "Debe ingresar la hora de entrega")]
         public Nullable<System.TimeSpan> Hora_Entrega { get; set; }
+
+        /*En espera, entregando, recibido*/
+        [DefaultValue("En espera")]
+        [StringLength(10, MinimumLength = 7)]
+        [Display(Name = "Estado de la entrega")]
+        [Required(ErrorMessage = "Debe seleccionar el estado de la entrega")]
         public string Estado_Entrega { get; set; }
     
         public virtual IngresoProveedor IngresoProveedor { get; set; }

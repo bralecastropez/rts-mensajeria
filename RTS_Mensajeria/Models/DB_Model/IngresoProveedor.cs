@@ -11,7 +11,9 @@ namespace RTS_Mensajeria.Models.DB_Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class IngresoProveedor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,16 +24,55 @@ namespace RTS_Mensajeria.Models.DB_Model
         }
     
         public int Id_IngresoProveedor { get; set; }
+
+        [Display(Name = "Código ingreso")]
+        [DefaultValue("In-Pro-Co")]
         public string Codigo_IngresoProveedor { get; set; }
+        
+        [DisplayName("Proveedor")]
+        [Required(ErrorMessage = "Debe seleccionar el proveedor")]
         public int Id_Proveedor { get; set; }
         public Nullable<int> Id_Usuario { get; set; }
+
+        [DisplayName("Horario de entrega")]
+        [Required(ErrorMessage = "Debe seleccionar el horario de entrega")]
         public int Id_HorarioEntrega { get; set; }
+        
+        [Display(Name = "Fecha de ingreso")]
+        [DataType(DataType.Date)]
+        [Required(ErrorMessage = "Debe ingresar la fecha de ingreso")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Fecha_Ingreso { get; set; }
+
+        //Ingresar fecha por defecto, del servidor no del cliente
+        [Display(Name = "Fecha de creación")]
+        [DataType(DataType.Date)]
+        [Required(ErrorMessage = "Debe ingresar la fecha de ingreso")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Fecha_Creacion { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Descripción del ingreso")]
+        [Required(ErrorMessage = "Debe ingresar la descripción del ingreso")]
         public string Detalle_Ingreso { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Descripción del producto")]
+        [Required(ErrorMessage = "Debe ingresar la descripción del producto")]
         public string Detalle_Producto { get; set; }
+
+        [Display(Name = "Número de paquetes")]
+        [Required(ErrorMessage = "Debe ingresar la cantidad de paquetes")]
         public Nullable<int> No_Paquetes { get; set; }
+
+        [DefaultValue("No")]
+        [StringLength(2, MinimumLength = 2)]
+        [Required(ErrorMessage = "Debe seleccionar si usará el elevador")]
         public string Elevador { get; set; }
+
+        [DefaultValue("No")]
+        [StringLength(2, MinimumLength = 2)]
+        [Required(ErrorMessage = "Debe seleccionar la aprobación")]
         public string Aprobada { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

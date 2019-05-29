@@ -11,15 +11,37 @@ namespace RTS_Mensajeria.Models.DB_Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Mensajero
     {
         public int Id_Mensajero { get; set; }
+
+        [Display(Name = "Ingreso")]
+        [Required(ErrorMessage = "Debe seleccionar el número de ingreso")]
         public Nullable<int> Id_Ingreso { get; set; }
+
+        //Ascendente, Descendente
+        [Display(Name = "Orden")]
+        [Required(ErrorMessage = "Debe seleccionar el orden")]
         public string Orden { get; set; }
+
+        [Display(Name = "Número de paquetes")]
+        [Required(ErrorMessage = "Debe ingresar la cantidad de paquetes")]
         public string Tipo_Ingreso { get; set; }
+
+        [StringLength(100, MinimumLength = 5)]
+        [Display(Name = "Nombre del mensajero")]
+        [Required(ErrorMessage = "Debe ingresar el nombre del mensajero")]
         public string Nombre { get; set; }
+
+        [Display(Name = "No. DPI/CUI")]
+        [StringLength(20, MinimumLength = 13)]
+        [Required(ErrorMessage = "Debe ingresar el documento de identificación del mensajero")]
         public string CUI { get; set; }
+
+        [StringLength(10)]
+        [Required(ErrorMessage = "Debe ingresar el gafete de identificación del contacto")]
         public string Carnet { get; set; }
     
         public virtual Ingreso Ingreso { get; set; }

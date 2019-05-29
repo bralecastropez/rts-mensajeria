@@ -11,13 +11,25 @@ namespace RTS_Mensajeria.Models.DB_Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Modulo
     {
         public int Id_Modulo { get; set; }
+
+        [Display(Name = "Tipo de usuario")]
+        [Required(ErrorMessage = "Debe seleccionar el tipo de usuario")]
         public int Id_TipoUsuario { get; set; }
+
+        [Display(Name = "Nombre del módulo")]
+        [Required(ErrorMessage = "Debe ingresar el nombre del módulo")]
         public string Nombre { get; set; }
+
+        [Display(Name = "Enlace")]
+        [Required(ErrorMessage = "Debe ingresar el enlace")]
         public string Enlace { get; set; }
+
+        [Display(Name = "Detalles extra")]
         public string Extra { get; set; }
     
         public virtual TipoUsuario TipoUsuario { get; set; }

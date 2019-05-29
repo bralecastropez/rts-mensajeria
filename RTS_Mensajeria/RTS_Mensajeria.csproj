@@ -190,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactosController.cs" />
     <Compile Include="Controllers\EmpresasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HorarioEntregasController.cs" />
@@ -515,6 +516,12 @@
     <Content Include="Views\HorarioEntregas\Index.cshtml" />
     <Content Include="Views\HorarioEntregas\Inactive.cshtml" />
     <Content Include="Views\HorarioEntregas\Active.cshtml" />
+    <Content Include="Views\Empresas\Inactive.cshtml" />
+    <Content Include="Views\Contactos\Create.cshtml" />
+    <Content Include="Views\Contactos\Delete.cshtml" />
+    <Content Include="Views\Contactos\Details.cshtml" />
+    <Content Include="Views\Contactos\Edit.cshtml" />
+    <Content Include="Views\Contactos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

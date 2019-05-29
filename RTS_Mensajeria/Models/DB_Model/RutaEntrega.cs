@@ -11,13 +11,28 @@ namespace RTS_Mensajeria.Models.DB_Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class RutaEntrega
     {
         public int Id_RutaEntrega { get; set; }
+
+        [DisplayName("Ingreso")]
         public Nullable<int> Id_Ingreso { get; set; }
+
+        [DisplayName("Solicitud de proveedor")]
         public Nullable<int> Id_SolicitudProveedor { get; set; }
+
+        //Ascendente, Descendente
+        [Display(Name = "Orden")]
+        [StringLength(11, MinimumLength = 10)]
+        [Required(ErrorMessage = "Debe seleccionar el orden")]
         public string Orden { get; set; }
+
+        [DefaultValue("No")]
+        [StringLength(2, MinimumLength = 2)]
+        [Required(ErrorMessage = "Debe seleccionar si se anticipará")]
         public string Anticipada { get; set; }
     
         public virtual Ingreso Ingreso { get; set; }

@@ -158,7 +158,7 @@ CREATE TABLE Mensajero (
 	Id_Mensajero INT IDENTITY (1, 1) NOT NULL,
 	Id_Ingreso INT,
 	Orden VARCHAR (100) DEFAULT 'Ascendente', /*Ascendente, Descendente*/
-	Tipo_Ingreso VARCHAR (100) DEFAULT 'Ingreso',  /*Ingreso, Salida*/
+	Tipo_Ingreso VARCHAR (100) DEFAULT 'Entrada',  /*Entrada, Salida*/
 	Nombre VARCHAR (255) DEFAULT NULL, 
 	CUI VARCHAR (100) DEFAULT NULL,
 	Carnet VARCHAR (100) DEFAULT NULL,

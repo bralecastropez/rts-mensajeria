@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RTS_Mensajeria.Models.DB_Model.Empresa>
+﻿@model IEnumerable<RTS_Mensajeria.Models.DB_Model.HorarioEntrega>
 @{
     ViewBag.Title = "Inicio";
 }
@@ -14,7 +14,7 @@ else
             <h4 class="ml-3 mb-2 mb-sm-0 pt-1 white-text">
                 <span><a href="@Url.Action("Index","Home")" class="text-decoration-none white-text"><i class="fa fa-home mr-1"></i> Inicio</a></span>
                 <span>/</span>
-                <span><i class="fa fa-industry mr-1"></i> Empresas</span>
+                <span><i class="fa fa-building mr-1"></i> Horarios de entrega</span>
             </h4>
             <div class="mr-3">
                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
@@ -27,10 +27,10 @@ else
                 <br />
                 <div class="row">
                     <div class="col-md-10">
-                        <h2>Listado de empresas</h2>
+                        <h2>Listado de horarios de entrega</h2>
                     </div>
                     <div class="col-md-2">
-                        <a class="btn btn-default btn-small btn-rounded" href="@Url.Action("Create", "Empresas")">
+                        <a class="btn btn-default btn-small btn-rounded" href="@Url.Action("Create", "HorarioEntregas")">
                             <i class="fa fa-plus"></i> Crear
                         </a>
                     </div>
@@ -40,29 +40,32 @@ else
                     <table class="table table-hover">
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.Nombre)
+                                @Html.DisplayNameFor(model => model.Hora_Entrega)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.TipoEmpresa)
+                                @Html.DisplayNameFor(model => model.Hora_Salida)
                             </th>
                             <th></th>
                         </tr>
 
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Nombre)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.TipoEmpresa)
-                                </td>
-                                <td>
-                                    <a class="btn btn-sm btn-secondary" href="@Url.Action("Active", "Oficinas", new { id = item.Id_Empresa })">
-                                        <i class="fa fa-power-off"></i> Activar
-                                    </a>
-                                </td>
-                            </tr>
+                            if (item.Estado == "Inactivo")
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Hora_Entrega)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Hora_Salida)
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-secondary" href="@Url.Action("Active", "HorarioEntregas", new { id = item.Id_HorarioEntrega })">
+                                            <i class="fa fa-power-off"></i> Activar
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
                         }
                     </table>
                 </div>

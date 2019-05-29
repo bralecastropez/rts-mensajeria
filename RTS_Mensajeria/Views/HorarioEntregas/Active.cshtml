@@ -1,7 +1,6 @@
-﻿@model RTS_Mensajeria.Models.DB_Model.TipoUsuario
-
+﻿@model RTS_Mensajeria.Models.DB_Model.HorarioEntrega
 @{
-    ViewBag.Title = "Activar tipo de usuario";
+    ViewBag.Title = "Activar horario de entrega";
 }
 @if (!Request.IsAuthenticated)
 {
@@ -15,9 +14,9 @@ else
             <h4 class="ml-3 mb-2 mb-sm-0 pt-1 white-text">
                 <span><a href="@Url.Action("Index","Home")" class="text-decoration-none white-text"><i class="fa fa-home mr-1"></i> Inicio</a></span>
                 <span>/</span>
-                <span><a href="@Url.Action("Index", "TipoUsuarios")" class="text-decoration-none white-text"><i class="fa fa-user-friends mr-1"></i> Tipos de usuario</a></span>
+                <span><a href="@Url.Action("Index", "HorarioEntregas")" class="text-decoration-none white-text"><i class="fa fa-briefcase mr-1"></i> Horarios de entrega</a></span>
                 <span>/</span>
-                <span>Activar el tipo de usuario</span>
+                <span>Activar horario de entrega</span>
             </h4>
             <div class="mr-3">
                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
@@ -30,49 +29,46 @@ else
                 <br />
                 <div class="row">
                     <div class="col-md-10">
-                        <h2>Activar el tipo de usuario</h2>
+                        <h2>Activar el horario de entrega</h2>
                     </div>
                 </div>
                 <hr />
                 <div>
                     <dl class="dl-horizontal">
                         <dt>
-                            @Html.DisplayNameFor(model => model.Nombre)
+                            @Html.DisplayNameFor(model => model.Hora_Entrega)
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Nombre)
+                            @Html.DisplayFor(model => model.Hora_Entrega)
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.Detalle)
+                            @Html.DisplayNameFor(model => model.Hora_Salida)
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Detalle)
+                            @Html.DisplayFor(model => model.Hora_Salida)
                         </dd>
                     </dl>
-
                     <hr />
-
-
                     <div class="text-center">
-                        <h3>¿Desea activar éste tipo de usuario?</h3>
+                        <h3>¿Desea activar éste horario de entrega?</h3>
                         @using (Html.BeginForm())
                         {
                             @Html.AntiForgeryToken()
 
                             <div class="form-actions no-color">
-                                <a class="btn btn-primary" href="@Url.Action("Inactive", "TipoUsuarios")">
+                                <a class="btn btn-primary" href="@Url.Action("Inactive", "HorarioEntregas")">
                                     <i class="fa fa-arrow-left mr-1"></i> Regresar
                                 </a>
                                 |
-                                <button type="submit" class="btn green btn-green">
+                                <button type="submit" class="btn btn-green green">
                                     <i class="fa fa-check mr-1"></i>
-                                    Activar
+                                    Eliminar
                                 </button>
                             </div>
-                            <br/>
+                            <br />
                         }
                     </div>
                 </div>
@@ -80,3 +76,4 @@ else
         </div>
     </div>
 }
+

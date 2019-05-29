@@ -1,0 +1,68 @@
+﻿@model RTS_Mensajeria.Models.DB_Model.HorarioEntrega
+@{
+    ViewBag.Title = "Detalles del horario de entrega";
+}
+
+@if (!Request.IsAuthenticated)
+{
+    Response.Redirect(@Url.Action("Login", "Account"));
+}
+else
+{
+
+    <div class="card card-cascade narrower">
+        <div class="view view-cascade primary-color narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+            <h4 class="ml-3 mb-2 mb-sm-0 pt-1 white-text">
+                <span><a href="@Url.Action("Index","Home")" class="text-decoration-none white-text"><i class="fa fa-home mr-1"></i> Inicio</a></span>
+                <span>/</span>
+                <span><a href="@Url.Action("Index", "HorarioEntregas")" class="text-decoration-none white-text"><i class="fa fa-briefcase mr-1"></i> Horarios de entrega</a></span>
+                <span>/</span>
+                <span>Detalle del horario de entrega</span>
+            </h4>
+            <div class="mr-3">
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fas fa-info-circle mt-0"></i>
+                </button>
+            </div>
+        </div>
+        <div class="px-4">
+            <div class="table-wrapper">
+                <br />
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2>Detalle del horario de entrega</h2>
+                    </div>
+                </div>
+                <hr />
+                <div>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Hora_Entrega)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Hora_Entrega)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Hora_Salida)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Hora_Salida)
+                        </dd>
+
+                    </dl>
+                </div>
+                <br />
+                <div class="form-group text-right">
+                    <div class="col-md-offset-2 col-md-10">
+                        <a class="btn btn-primary" href="@Url.Action("Index", "HorarioEntregas")"><i class="fa fa-arrow-left mr-1"></i> Regresar</a>
+                        |
+                        <a href="@Url.Action("Edit", "Oficinas", new { id = Model.Id_HorarioEntrega})" class="btn btn-default"><i class="fa fa-edit ml-1"></i> Editar </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

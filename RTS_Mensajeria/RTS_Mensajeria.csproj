@@ -192,6 +192,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmpresasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HorarioEntregasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NivelesController.cs" />
     <Compile Include="Controllers\OficinasController.cs" />
@@ -507,6 +508,13 @@
     <Content Include="Views\Empresas\Details.cshtml" />
     <Content Include="Views\Empresas\Edit.cshtml" />
     <Content Include="Views\Empresas\Index.cshtml" />
+    <Content Include="Views\HorarioEntregas\Create.cshtml" />
+    <Content Include="Views\HorarioEntregas\Delete.cshtml" />
+    <Content Include="Views\HorarioEntregas\Details.cshtml" />
+    <Content Include="Views\HorarioEntregas\Edit.cshtml" />
+    <Content Include="Views\HorarioEntregas\Index.cshtml" />
+    <Content Include="Views\HorarioEntregas\Inactive.cshtml" />
+    <Content Include="Views\HorarioEntregas\Active.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

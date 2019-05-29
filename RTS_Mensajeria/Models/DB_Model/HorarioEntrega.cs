@@ -11,7 +11,9 @@ namespace RTS_Mensajeria.Models.DB_Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class HorarioEntrega
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +23,19 @@ namespace RTS_Mensajeria.Models.DB_Model
         }
     
         public int Id_HorarioEntrega { get; set; }
+
+        [DataType(DataType.Time)]
+        [Display(Name = "Hora de entrega")]
+        [Required(ErrorMessage = "Debe ingresar la hora entrega")]
         public Nullable<System.TimeSpan> Hora_Entrega { get; set; }
+
+        [DataType(DataType.Time)]
+        [Display(Name = "Hora de salida")]
+        [Required(ErrorMessage = "Debe ingresar la hora salida")]
         public Nullable<System.TimeSpan> Hora_Salida { get; set; }
+
+        [DefaultValue("Activo")]
+        [StringLength(8, MinimumLength = 6)]
         public string Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

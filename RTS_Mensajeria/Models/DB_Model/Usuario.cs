@@ -13,7 +13,7 @@ namespace RTS_Mensajeria.Models.DB_Model
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class Usuario
+    public partial class Usuario : BaseVM
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuario()

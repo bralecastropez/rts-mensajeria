@@ -1,0 +1,106 @@
+﻿@model RTS_Mensajeria.Models.DB_Model.IngresoProveedor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>IngresoProveedor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Codigo_IngresoProveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codigo_IngresoProveedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Ingreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Ingreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Creacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Creacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Detalle_Ingreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Detalle_Ingreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Detalle_Producto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Detalle_Producto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.No_Paquetes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.No_Paquetes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Elevador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Elevador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aprobada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aprobada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HorarioEntrega.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HorarioEntrega.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proveedor.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proveedor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Usuario1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Usuario1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_IngresoProveedor }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -9,12 +9,14 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using RTS_Mensajeria.Models;
+using RTS_Mensajeria.Models.DB_Model;
 
 namespace RTS_Mensajeria.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
+        private RTS_MensajeriaEntities db = new RTS_MensajeriaEntities();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -52,6 +54,17 @@ namespace RTS_Mensajeria.Controllers
             }
         }
 
+        [NonAction]
+        public Usuario obtenerUsuario(String userId)
+        {
+            var usuario = new Usuario();
+            usuario = db.Usuario
+                    .Where(m => m.Correo == userId)
+                    .Select(m => m)
+                    .SingleOrDefault();
+            return usuario;
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -79,7 +92,11 @@ namespace RTS_Mensajeria.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    //return RedirectToLocal(returnUrl);
+                    Session["user_email"] = model.Email;
+                    Session["user_rol"] = obtenerUsuario(model.Email).Id_TipoUsuario;
+                    Session["user_data"] = obtenerUsuario(model.Email);
+                    return RedirectToAction("Index", "Dashboard");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -156,14 +173,32 @@ namespace RTS_Mensajeria.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
+                    var usuario = new Usuario();
+                    usuario.Correo = model.Email;
+                    usuario.Usuario1 = model.Email;
+                    usuario.CUI = "0000 00000 0000";
+                    usuario.Telefono = "0000 0000";
+                    usuario.NombreCompleto = "";
+                    if (usuario.Correo.ToLower().Contains("bralecastropez") ){
+                        usuario.NombreCompleto = "Brandon Alexander";
+                        usuario.Id_TipoUsuario = 1;
+                    } else { 
+                        usuario.Id_TipoUsuario = 4;
+                    }
+                    db.Usuario.Add(usuario);
+                    db.SaveChanges();
+                    Session["user_email"] = model.Email;
+                    Session["user_rol"] = usuario.Id_TipoUsuario;
+                    Session["user_data"] = obtenerUsuario(model.Email);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Dashboard");
                 }
                 AddErrors(result);
             }

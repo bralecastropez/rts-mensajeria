@@ -1,0 +1,66 @@
+﻿@model RTS_Mensajeria.Models.DB_Model.Mensajero
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Mensajero</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Orden)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Orden)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo_Ingreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Ingreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CUI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CUI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carnet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carnet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ingreso.Codigo_Ingreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ingreso.Codigo_Ingreso)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Mensajero }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

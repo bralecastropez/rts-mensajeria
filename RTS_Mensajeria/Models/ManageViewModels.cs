@@ -5,7 +5,7 @@ using Microsoft.Owin.Security;
 
 namespace RTS_Mensajeria.Models
 {
-    public class IndexViewModel
+    public class IndexViewModel : BaseVM
     {
         public bool HasPassword { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
@@ -14,18 +14,18 @@ namespace RTS_Mensajeria.Models
         public bool BrowserRemembered { get; set; }
     }
 
-    public class ManageLoginsViewModel
+    public class ManageLoginsViewModel : BaseVM
     {
         public IList<UserLoginInfo> CurrentLogins { get; set; }
         public IList<AuthenticationDescription> OtherLogins { get; set; }
     }
 
-    public class FactorViewModel
+    public class FactorViewModel : BaseVM
     {
         public string Purpose { get; set; }
     }
 
-    public class SetPasswordViewModel
+    public class SetPasswordViewModel : BaseVM
     {
         [Required]
         [StringLength(100, ErrorMessage = "{0} debe tener al menos {2} caracteres de longitud.", MinimumLength = 6)]
@@ -39,7 +39,7 @@ namespace RTS_Mensajeria.Models
         public string ConfirmPassword { get; set; }
     }
 
-    public class ChangePasswordViewModel
+    public class ChangePasswordViewModel : BaseVM
     {
         [Required]
         [DataType(DataType.Password)]
@@ -58,7 +58,7 @@ namespace RTS_Mensajeria.Models
         public string ConfirmPassword { get; set; }
     }
 
-    public class AddPhoneNumberViewModel
+    public class AddPhoneNumberViewModel : BaseVM
     {
         [Required]
         [Phone]
@@ -66,7 +66,7 @@ namespace RTS_Mensajeria.Models
         public string Number { get; set; }
     }
 
-    public class VerifyPhoneNumberViewModel
+    public class VerifyPhoneNumberViewModel : BaseVM
     {
         [Required]
         [Display(Name = "Código")]
@@ -78,7 +78,7 @@ namespace RTS_Mensajeria.Models
         public string PhoneNumber { get; set; }
     }
 
-    public class ConfigureTwoFactorViewModel
+    public class ConfigureTwoFactorViewModel : BaseVM
     {
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }

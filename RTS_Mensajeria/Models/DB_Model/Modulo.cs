@@ -13,7 +13,7 @@ namespace RTS_Mensajeria.Models.DB_Model
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class Modulo
+    public partial class Modulo : BaseVM
     {
         public int Id_Modulo { get; set; }
 

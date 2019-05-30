@@ -3,19 +3,19 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RTS_Mensajeria.Models
 {
-    public class ExternalLoginConfirmationViewModel
+    public class ExternalLoginConfirmationViewModel : BaseVM
     {
         [Required]
         [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
     }
 
-    public class ExternalLoginListViewModel
+    public class ExternalLoginListViewModel : BaseVM
     {
         public string ReturnUrl { get; set; }
     }
 
-    public class SendCodeViewModel
+    public class SendCodeViewModel : BaseVM
     {
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
@@ -23,7 +23,7 @@ namespace RTS_Mensajeria.Models
         public bool RememberMe { get; set; }
     }
 
-    public class VerifyCodeViewModel
+    public class VerifyCodeViewModel : BaseVM
     {
         [Required]
         public string Provider { get; set; }
@@ -39,14 +39,14 @@ namespace RTS_Mensajeria.Models
         public bool RememberMe { get; set; }
     }
 
-    public class ForgotViewModel
+    public class ForgotViewModel : BaseVM
     {
         [Required]
         [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
     }
 
-    public class LoginViewModel
+    public class LoginViewModel : BaseVM
     {
         [Required]
         [Display(Name = "Correo electrónico")]
@@ -62,7 +62,7 @@ namespace RTS_Mensajeria.Models
         public bool RememberMe { get; set; }
     }
 
-    public class RegisterViewModel
+    public class RegisterViewModel : BaseVM
     {
         [Required]
         [EmailAddress]
@@ -81,7 +81,7 @@ namespace RTS_Mensajeria.Models
         public string ConfirmPassword { get; set; }
     }
 
-    public class ResetPasswordViewModel
+    public class ResetPasswordViewModel : BaseVM
     {
         [Required]
         [EmailAddress]
@@ -102,7 +102,7 @@ namespace RTS_Mensajeria.Models
         public string Code { get; set; }
     }
 
-    public class ForgotPasswordViewModel
+    public class ForgotPasswordViewModel : BaseVM
     {
         [Required]
         [EmailAddress]

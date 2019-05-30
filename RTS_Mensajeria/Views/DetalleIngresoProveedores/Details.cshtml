@@ -1,0 +1,58 @@
+﻿@model RTS_Mensajeria.Models.DB_Model.DetalleIngresoProveedor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DetalleIngresoProveedor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoDetalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoDetalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Detalle_Rechazo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Detalle_Rechazo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hora_Entrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hora_Entrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado_Entrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado_Entrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IngresoProveedor.Codigo_IngresoProveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IngresoProveedor.Codigo_IngresoProveedor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_DetalleIngresoProveedor }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

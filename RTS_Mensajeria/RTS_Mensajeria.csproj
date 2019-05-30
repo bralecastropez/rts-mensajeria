@@ -190,18 +190,32 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ContactosController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DetalleIngresoProveedoresController.cs" />
     <Compile Include="Controllers\EmpresasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HorarioEntregasController.cs" />
+    <Compile Include="Controllers\IngresoProveedoresController.cs" />
+    <Compile Include="Controllers\IngresosController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MensajerosController.cs" />
+    <Compile Include="Controllers\ModulosController.cs" />
     <Compile Include="Controllers\NivelesController.cs" />
     <Compile Include="Controllers\OficinasController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
+    <Compile Include="Controllers\ProveedoresController.cs" />
+    <Compile Include="Controllers\RutaEntregasController.cs" />
+    <Compile Include="Controllers\SharedController.cs" />
     <Compile Include="Controllers\TipoUsuariosController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BaseVM.cs" />
+    <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\DB_Model\Contacto.cs">
       <DependentUpon>RTS_Mensajeria_Model.tt</DependentUpon>
     </Compile>
@@ -522,9 +536,61 @@
     <Content Include="Views\Contactos\Details.cshtml" />
     <Content Include="Views\Contactos\Edit.cshtml" />
     <Content Include="Views\Contactos\Index.cshtml" />
+    <Content Include="Views\DetalleIngresoProveedores\Create.cshtml" />
+    <Content Include="Views\DetalleIngresoProveedores\Delete.cshtml" />
+    <Content Include="Views\DetalleIngresoProveedores\Details.cshtml" />
+    <Content Include="Views\DetalleIngresoProveedores\Edit.cshtml" />
+    <Content Include="Views\DetalleIngresoProveedores\Index.cshtml" />
+    <Content Include="Views\Ingresos\Create.cshtml" />
+    <Content Include="Views\Ingresos\Delete.cshtml" />
+    <Content Include="Views\Ingresos\Details.cshtml" />
+    <Content Include="Views\Ingresos\Edit.cshtml" />
+    <Content Include="Views\Ingresos\Index.cshtml" />
+    <Content Include="Views\IngresoProveedores\Create.cshtml" />
+    <Content Include="Views\IngresoProveedores\Delete.cshtml" />
+    <Content Include="Views\IngresoProveedores\Details.cshtml" />
+    <Content Include="Views\IngresoProveedores\Edit.cshtml" />
+    <Content Include="Views\IngresoProveedores\Index.cshtml" />
+    <Content Include="Views\Mensajeros\Create.cshtml" />
+    <Content Include="Views\Mensajeros\Delete.cshtml" />
+    <Content Include="Views\Mensajeros\Details.cshtml" />
+    <Content Include="Views\Mensajeros\Edit.cshtml" />
+    <Content Include="Views\Mensajeros\Index.cshtml" />
+    <Content Include="Views\Modulos\Create.cshtml" />
+    <Content Include="Views\Modulos\Delete.cshtml" />
+    <Content Include="Views\Modulos\Details.cshtml" />
+    <Content Include="Views\Modulos\Edit.cshtml" />
+    <Content Include="Views\Modulos\Index.cshtml" />
+    <Content Include="Views\Proveedores\Create.cshtml" />
+    <Content Include="Views\Proveedores\Delete.cshtml" />
+    <Content Include="Views\Proveedores\Details.cshtml" />
+    <Content Include="Views\Proveedores\Edit.cshtml" />
+    <Content Include="Views\Proveedores\Index.cshtml" />
+    <Content Include="Views\RutaEntregas\Create.cshtml" />
+    <Content Include="Views\RutaEntregas\Delete.cshtml" />
+    <Content Include="Views\RutaEntregas\Details.cshtml" />
+    <Content Include="Views\RutaEntregas\Edit.cshtml" />
+    <Content Include="Views\RutaEntregas\Index.cshtml" />
+    <Content Include="Views\Usuarios\Create.cshtml" />
+    <Content Include="Views\Usuarios\Delete.cshtml" />
+    <Content Include="Views\Usuarios\Details.cshtml" />
+    <Content Include="Views\Usuarios\Edit.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\RutaEntregas\Delivered.cshtml" />
+    <Content Include="Views\IngresoProveedores\Autorized.cshtml" />
+    <Content Include="Views\Contactos\Inactive.cshtml" />
+    <Content Include="Views\Usuarios\Inactive.cshtml" />
+    <Content Include="Views\Perfil\Create.cshtml" />
+    <Content Include="Views\Perfil\Delete.cshtml" />
+    <Content Include="Views\Perfil\Details.cshtml" />
+    <Content Include="Views\Perfil\Edit.cshtml" />
+    <Content Include="Views\Perfil\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -10,7 +10,7 @@ using RTS_Mensajeria.Models.DB_Model;
 
 namespace RTS_Mensajeria.Controllers
 {
-    public class ContactosController : Controller
+    public class ContactosController : BaseController
     {
         private RTS_MensajeriaEntities db = new RTS_MensajeriaEntities();
 
@@ -127,6 +127,18 @@ namespace RTS_Mensajeria.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        // POST: Contactos/Active/5
+        [HttpPost, ActionName("Active")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ActiveConfirmed(int id)
+        {
+            Contacto contacto = db.Contacto.Find(id);
+            contacto.Estado = "Activo";
+            db.Entry(contacto).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         // GET: Contactos/Active/5
         public ActionResult Active(int? id)
         {
@@ -140,18 +152,6 @@ namespace RTS_Mensajeria.Controllers
                 return HttpNotFound();
             }
             return View(contacto);
-        }
-
-        // POST: Contactos/Active/5
-        [HttpPost, ActionName("Active")]
-        [ValidateAntiForgeryToken]
-        public ActionResult ActiveConfirmed(int id)
-        {
-            Contacto contacto = db.Contacto.Find(id);
-            contacto.Estado = "Activo";
-            db.Entry(contacto).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

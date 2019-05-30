@@ -10,7 +10,7 @@ using RTS_Mensajeria.Models.DB_Model;
 
 namespace RTS_Mensajeria.Controllers
 {
-    public class EmpresasController : Controller
+    public class EmpresasController : BaseController
     {
         private RTS_MensajeriaEntities db = new RTS_MensajeriaEntities();
 

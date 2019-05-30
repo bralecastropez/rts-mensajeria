@@ -1,0 +1,124 @@
+﻿@using RTS_Mensajeria.Models.DB_Model
+<li>
+    <hr />
+    <hr/>
+        @if ((String)Session["user_email"] == User.Identity.Name)
+        {
+            <p>@Html.Label((String)Session["user_email"])</p>
+            <p>@Html.Label(Convert.ToString((Int32)Session["user_rol"]))</p>
+            <p>@Html.Label(((Usuario)Session["user_data"]).NombreCompleto)</p>
+        }
+    <hr/>
+    <hr/>
+
+</li>
+
+<li>
+    <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-building"></i> Edificio<i class="fa fa-angle-down rotate-icon"></i></a>
+    <div class="collapsible-body">
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "Niveles")" class="waves-effect">Administrar niveles</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Inactive", "Niveles")" class="waves-effect">Reactivar niveles</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "HorarioEntregas")" class="waves-effect">Horarios de entrega</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Inactive", "HorarioEntregas")" class="waves-effect">Reactivar horarios de entrega</a>
+            </li>
+        </ul>
+    </div>
+</li>
+<li>
+    <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-briefcase"></i> Oficinas<i class="fa fa-angle-down rotate-icon"></i></a>
+    <div class="collapsible-body">
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "Oficinas")" class="waves-effect">Administrar oficinas</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Inactive", "Oficinas")" class="waves-effect">Reactivar oficinas</a>
+            </li>
+        </ul>
+    </div>
+</li>
+<li>
+    <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-industry"></i> Empresas<i class="fa fa-angle-down rotate-icon"></i></a>
+    <div class="collapsible-body">
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "Empresas")" class="waves-effect">Administrar empresas</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Inactive", "Empresas")" class="waves-effect">Reactivar empresas</a>
+            </li>
+        </ul>
+    </div>
+</li>
+<li>
+    <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-user-friends"></i> Usuarios<i class="fa fa-angle-down rotate-icon"></i></a>
+    <div class="collapsible-body">
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "TipoUsuarios")" class="waves-effect">Tipo usuarios</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Usuarios")" class="waves-effect">Administrar usuarios</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Inactive", "Usuarios")" class="waves-effect">Reactivar usuarios</a>
+            </li>
+        </ul>
+    </div>
+</li>
+<li>
+    <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-vcard"></i> Contactos<i class="fa fa-angle-down rotate-icon"></i></a>
+    <div class="collapsible-body">
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "Contactos")" class="waves-effect">Administrar contactos</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Inactive", "Contactos")" class="waves-effect">Reactivar contactos</a>
+            </li>
+        </ul>
+    </div>
+</li>
+<li>
+    <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-truck"></i> Proveedores<i class="fa fa-angle-down rotate-icon"></i></a>
+    <div class="collapsible-body">
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "Proveedores")" class="waves-effect">Administrar proveedores</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "IngresoProveedores")" class="waves-effect">Solicitudes de ingreso</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Ingreso")" class="waves-effect">Ingreso de proveedor</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "RutaEntregas")" class="waves-effect">Ruta de entrega</a>
+            </li>
+        </ul>
+    </div>
+</li>
+<li>
+    <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-line-chart"></i> Reportes<i class="fa fa-angle-down rotate-icon"></i></a>
+    <div class="collapsible-body">
+        <ul>
+            <li>
+                <a href="@Url.Action("Delivered", "RutaEntregas")" class="waves-effect">Paquetes entregados</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Autorized", "IngresoProveedores")" class="waves-effect">Visitas de proveedor autorizadas</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Mensajeros")" class="waves-effect">Visitas de proveedor</a>
+            </li>
+        </ul>
+    </div>
+</li>

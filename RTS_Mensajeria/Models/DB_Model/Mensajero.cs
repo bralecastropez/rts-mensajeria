@@ -13,7 +13,7 @@ namespace RTS_Mensajeria.Models.DB_Model
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class Mensajero
+    public partial class Mensajero : BaseVM
     {
         public int Id_Mensajero { get; set; }
 
@@ -26,8 +26,9 @@ namespace RTS_Mensajeria.Models.DB_Model
         [Required(ErrorMessage = "Debe seleccionar el orden")]
         public string Orden { get; set; }
 
-        [Display(Name = "Número de paquetes")]
-        [Required(ErrorMessage = "Debe ingresar la cantidad de paquetes")]
+        //Entrada, Salida
+        [Display(Name = "Tipo de ingreso")]
+        [Required(ErrorMessage = "Debe seleccionar el tipo de ingreso")]
         public string Tipo_Ingreso { get; set; }
 
         [StringLength(100, MinimumLength = 5)]

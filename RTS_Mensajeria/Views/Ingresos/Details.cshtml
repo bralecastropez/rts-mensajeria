@@ -1,0 +1,90 @@
+﻿@model RTS_Mensajeria.Models.DB_Model.Ingreso
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ingreso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Codigo_Ingreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codigo_Ingreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.No_Paquetes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.No_Paquetes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Mensajero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Mensajero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CUI_Mensajero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CUI_Mensajero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Detalle_Ingreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Detalle_Ingreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Ingreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Ingreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empresa.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empresa.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proveedor.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proveedor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Usuario1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Usuario1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Ingreso }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

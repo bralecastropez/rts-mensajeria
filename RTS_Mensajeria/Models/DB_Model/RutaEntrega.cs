@@ -14,7 +14,7 @@ namespace RTS_Mensajeria.Models.DB_Model
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class RutaEntrega
+    public partial class RutaEntrega : BaseVM
     {
         public int Id_RutaEntrega { get; set; }
 

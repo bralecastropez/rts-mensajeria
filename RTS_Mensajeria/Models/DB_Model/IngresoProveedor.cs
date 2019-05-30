@@ -14,7 +14,7 @@ namespace RTS_Mensajeria.Models.DB_Model
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class IngresoProveedor
+    public partial class IngresoProveedor : BaseVM
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public IngresoProveedor()

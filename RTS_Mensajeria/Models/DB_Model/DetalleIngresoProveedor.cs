@@ -14,7 +14,7 @@ namespace RTS_Mensajeria.Models.DB_Model
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class DetalleIngresoProveedor
+    public partial class DetalleIngresoProveedor : BaseVM
     {
         public int Id_DetalleIngresoProveedor { get; set; }
 
@@ -22,6 +22,8 @@ namespace RTS_Mensajeria.Models.DB_Model
         [Required(ErrorMessage = "Debe seleccionar una solicitud de ingreso")]
         public int Id_IngresoProveedor { get; set; }
 
+
+        //Ingresar el qr aquí
         [Display(Name = "Código unico")]
         [DefaultValue("De-In-Pro")]
         public string CodigoDetalle { get; set; }

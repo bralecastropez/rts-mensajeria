@@ -14,7 +14,7 @@ namespace RTS_Mensajeria.Models.DB_Model
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class Contacto
+    public partial class Contacto : BaseVM
     {
         public int Id_Contacto { get; set; }
         public int Id_Empresa { get; set; }

@@ -14,7 +14,7 @@ namespace RTS_Mensajeria.Models.DB_Model
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class Oficina
+    public partial class Oficina : BaseVM
     {
         public int Id_Oficina { get; set; }
         public int Id_Nivel { get; set; }

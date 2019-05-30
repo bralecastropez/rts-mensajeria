@@ -1,0 +1,35 @@
+﻿<li>
+    <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-truck"></i> Proveedores<i class="fa fa-angle-down rotate-icon"></i></a>
+    <div class="collapsible-body">
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "Proveedores")" class="waves-effect">Administrar proveedores</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "IngresoProveedores")" class="waves-effect">Solicitudes de ingreso</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Ingreso")" class="waves-effect">Ingreso de proveedor</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "RutaEntregas")" class="waves-effect">Ruta de entrega</a>
+            </li>
+        </ul>
+    </div>
+</li>
+<li>
+    <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-line-chart"></i> Reportes<i class="fa fa-angle-down rotate-icon"></i></a>
+    <div class="collapsible-body">
+        <ul>
+            <li>
+                <a href="@Url.Action("Delivered", "RutaEntregas")" class="waves-effect">Paquetes entregados</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Autorized", "IngresoProveedores")" class="waves-effect">Visitas de proveedor autorizadas</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Mensajeros")" class="waves-effect">Visitas de proveedor</a>
+            </li>
+        </ul>
+    </div>
+</li>

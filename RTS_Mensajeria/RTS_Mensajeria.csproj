@@ -586,6 +586,10 @@
     <Content Include="Views\Perfil\Details.cshtml" />
     <Content Include="Views\Perfil\Edit.cshtml" />
     <Content Include="Views\Perfil\Index.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Shared\_RecepcionMenu.cshtml" />
+    <Content Include="Views\Shared\_SuperadminMenu.cshtml" />
+    <Content Include="Views\Shared\_NormalMenu.cshtml" />
     <Content Include="Views\Shared\_AdminMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>

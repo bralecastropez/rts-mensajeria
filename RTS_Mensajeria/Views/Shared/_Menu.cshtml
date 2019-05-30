@@ -1,0 +1,28 @@
+﻿@using RTS_Mensajeria.Models.DB_Model
+
+@{
+    try
+    {
+        switch (((Int32)Session["user_rol"]))
+        {
+            case 1:
+                @Html.Partial("_SuperadminMenu")
+                break;
+            case 2:
+                @Html.Partial("_AdminMenu")
+                break;
+            case 3:
+                @Html.Partial("_RecepcionMenu")
+                break;
+            case 4:
+                @Html.Partial("_NormalMenu")
+                break;
+        }
+    }
+    catch
+    {
+        <td>
+            Debe iniciar sesión
+        </td>
+    }
+}

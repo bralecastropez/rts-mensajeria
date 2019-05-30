@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using RTS_Mensajeria.Models;
 using RTS_Mensajeria.Models.DB_Model;
+using System.Data.Entity.Validation;
 
 namespace RTS_Mensajeria.Controllers
 {
@@ -54,16 +55,16 @@ namespace RTS_Mensajeria.Controllers
             }
         }
 
-        [NonAction]
-        public Usuario obtenerUsuario(String userId)
-        {
-            var usuario = new Usuario();
-            usuario = db.Usuario
-                    .Where(m => m.Correo == userId)
-                    .Select(m => m)
-                    .SingleOrDefault();
-            return usuario;
-        }
+        //[NonAction]
+        //public Usuario obtenerUsuario(String userId)
+        //{
+        //    var usuario = new Usuario();
+        //    usuario = db.Usuario
+        //        .Where(m => m.Correo == userId)
+        //            .Select(m => m)
+        //            .SingleOrDefault();
+        //    return usuario;
+        //}
 
         //
         // GET: /Account/Login
@@ -179,11 +180,14 @@ namespace RTS_Mensajeria.Controllers
                     usuario.Usuario1 = model.Email;
                     usuario.CUI = "0000 00000 0000";
                     usuario.Telefono = "0000 0000";
-                    usuario.NombreCompleto = "";
-                    if (usuario.Correo.ToLower().Contains("bralecastropez") ){
+                    usuario.NombreCompleto = "Usuario normal (Cambia esto)";
+                    if (usuario.Correo.ToLower().Contains("bralecastropez"))
+                    {
                         usuario.NombreCompleto = "Brandon Alexander";
                         usuario.Id_TipoUsuario = 1;
-                    } else { 
+                    }
+                    else
+                    {
                         usuario.Id_TipoUsuario = 4;
                     }
                     db.Usuario.Add(usuario);

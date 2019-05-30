@@ -1,0 +1,97 @@
+﻿
+
+
+
+@model IEnumerable<RTS_Mensajeria.Models.DB_Model.IngresoProveedor>
+
+@{
+    ViewBag.Title = "Solicitudes de ingreso";
+}
+
+<div class="card card-cascade narrower">
+    <div class="view view-cascade primary-color narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+        <h4 class="ml-3 mb-2 mb-sm-0 pt-1 white-text">
+            <span><a href="@Url.Action(" Index","Home")" class="text-decoration-none white-text"><i class="fa fa-home mr-1"></i> Inicio</a></span>
+            <span>/</span>
+            <span><i class="fa fa-truck mr-1"></i> Proveedores</span>
+            <span>/</span>
+            <span>Detalle del rechazo</span>
+        </h4>
+        <div class="mr-3">
+            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                <i class="fas fa-info-circle mt-0"></i>
+            </button>
+        </div>
+    </div>
+    <div class="px-4">
+        <div class="table-wrapper">
+            <br />
+            <div class="row">
+                <div class="col-md-10">
+                    <h2>Solicitud Rechazada</h2>
+                </div>
+                <div class="col-md-2">
+                    <a class="btn btn-blue" href="@Url.Action("IngresoProveedores", "VistasAdmin")"><i class="fa fa-arrow-left mr-1"></i> Regresar</a>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="font-weight-bold mb-3">Estado de la solicitud</h5>
+                            <p class="mb-0">En orden con el cumplimiento de nuestro reglamento hemos decidido rechazar su solicitud de ingreso por los siguientes motivos:</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <div class="md-form">
+                                        <textarea id="textarea-char-counter" class="form-control md-textarea" length="120" rows="3"></textarea>
+                                        <label for="textarea-char-counter">Detalle del rechazo</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <!-- Material checked -->
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="materialChecked2" checked>
+                                        <label class="form-check-label" for="materialChecked2">Notificar al usuario</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#!" class="btn btn-red">Rechazar</a>
+                        </div>
+                    </div>
+
+                    <br />
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="font-weight-bold mb-3">Detalle de la solicitud </h5>
+                            <p class="mb-0">Mostramos el listado de datos de su solicitud</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Código de ingreso: INPRO00012</li>
+                            <li class="list-group-item">Proveedor: AGROFORTEX</li>
+                            <li class="list-group-item">Horario de entrega: 6:00</li>
+                            <li class="list-group-item">Fecha de ingreso: 01/07/2019</li>
+                            <li class="list-group-item">Número de paquetes: 2</li>
+                            <li class="list-group-item">Elevador de carga: Si</li>
+                            <li class="list-group-item">Detalle de la entrega:<p>Detalle de la entrega</p></li>
+                            <li class="list-group-item">Detalle del producto<p>Detalle del producto</p></li>
+                        </ul>
+                    </div>
+
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br />

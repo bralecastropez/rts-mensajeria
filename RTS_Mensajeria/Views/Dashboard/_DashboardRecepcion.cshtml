@@ -1,0 +1,231 @@
+﻿@{
+    ViewBag.Title = "Administrar Proveedores";
+}
+<div class="card card-cascade narrower">
+    <div class="view view-cascade primary-color narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+        <h4 class="ml-3 mb-2 mb-sm-0 pt-1 white-text">
+            <span><a href="@Url.Action("Index","Home")" class="text-decoration-none white-text"><i class="fa fa-home mr-1"></i> Inicio</a></span>
+            <span>/</span>
+            <span><i class="fa fa-truck mr-1"></i> Dashboard</span>
+        </h4>
+        <div class="mr-3">
+            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                <i class="fas fa-info-circle mt-0"></i>
+            </button>
+        </div>
+    </div>
+    <div class="px-4">
+        <div class="table-wrapper">
+            <h4>Bienvenido a recepción</h4>
+            <br />
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Solicitudes aceptadas
+                    <span class="badge badge-primary badge-pill">6</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Solicitudes rechazadas
+                    <span class="badge badge-primary badge-pill">18</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Entregas pendientes
+                    <span class="badge badge-primary badge-pill">6</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Detalles del producto
+                    <span class="badge badge-primary badge-pill">69</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Paquetes en espera
+                    <span class="badge badge-primary badge-pill">27</span>
+                </li>
+            </ul>
+            <p class="text-small text-muted mb-0 pt-3">* Versión preliminar, puede estar sujetos a cambios del administrador.</p>
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-md-10">
+                    <h2>Solicitudes de ingreso activas</h2>
+                </div>
+            </div>
+            <br />
+            <div class="table-responsive ">
+
+                <table class="table table-hover">
+                    <tr>
+                        <th>
+                            Código Ingreso
+                        </th>
+                        <th>Proveedor</th>
+                        <th>
+                            Fecha ingreso
+                        </th>
+                        <th>
+                            Hora de ingreso
+                        </th>
+                        <th>
+                            Elevador
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            SOIN0001
+                        </td>
+                        <td>
+                            Intelaf
+                        </td>
+                        <td>
+                            30/05/2019
+                        </td>
+                        <td>
+                            07:00
+                        </td>
+                        <td>
+                            Si
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            SOIN0002
+                        </td>
+                        <td>
+                            Cemaco
+                        </td>
+                        <td>
+                            30/05/2019
+                        </td>
+                        <td>
+                            08:00
+                        </td>
+                        <td>Si</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<div class="card card-cascade narrower">
+    <div class="px-4">
+        <div class="table-wrapper">
+            <br />
+            <div class="row">
+                <div class="col-md-10">
+                    <h2>Listado de rutas de entrega</h2>
+                </div>
+            </div>
+            <br />
+            <div class="table-responsive ">
+
+                <table class="table table-hover">
+                    <tr>
+                        <th>
+                            Código Ingreso
+                        </th>
+                        <th>Proveedor</th>
+                        <th>Empresa</th>
+                        <th>
+                            Fecha ingreso
+                        </th>
+                        <th>
+                            Hora de ingreso
+                        </th>
+                        <th>
+                            Elevador
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            SOIN0001 <span class="badge badge-pill badge-success">Anticipada</span>
+                        </td>
+                        <td>
+                            La curacao
+                        </td>
+                        <td>Electronicabp</td>
+                        <td>
+                            30/05/2019
+                        </td>
+                        <td>
+                            07:00
+                        </td>
+                        <td>
+                            Si
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            SOIN0881<span class="badge badge-pill badge-success">Anticipada</span>
+                        </td>
+                        <td>
+                            Claro
+                        </td>
+                        <td>Electronicabp</td>
+                        <td>
+                            30/05/2019
+                        </td>
+                        <td>
+                            07:00
+                        </td>
+                        <td>
+                            Si
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            SOIN0801<span class="badge badge-pill badge-success">Anticipada</span>
+                        </td>
+                        <td>
+                            Intelaf
+                        </td>
+                        <td>Electronicabp</td>
+                        <td>
+                            30/05/2019
+                        </td>
+                        <td>
+                            07:00
+                        </td>
+                        <td>
+                            Si
+                        </td>
+                    <tr>
+                        <td>
+                            SOIN0001
+                        </td>
+                        <td>
+                            Movistar
+                        </td>
+                        <td>Electronicabp</td>
+                        <td>
+                            30/05/2019
+                        </td>
+                        <td>
+                            07:00
+                        </td>
+                        <td>
+                            Si
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            SOIN0001
+                        </td>
+                        <td>
+                            Panamericana
+                        </td>
+                        <td>Electronicabp</td>
+                        <td>
+                            30/05/2019
+                        </td>
+                        <td>
+                            07:00
+                        </td>
+                        <td>
+                            Si
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>

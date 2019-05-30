@@ -1,0 +1,208 @@
+﻿
+@model RTS_Mensajeria.Models.DB_Model.IngresoProveedor
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="card card-cascade narrower">
+    <div class="view view-cascade primary-color narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+        <h4 class="ml-3 mb-2 mb-sm-0 pt-1 white-text">
+            <span><a href="@Url.Action("Index","Home")" class="text-decoration-none white-text"><i class="fa fa-home mr-1"></i> Inicio</a></span>
+            <span>/</span>
+            <span><a href="@Url.Action("SolicitudIngresos", "VistasNormal")" class="text-decoration-none white-text"><i class="fa fa-truck mr-1"></i> Proveedores</a></span>
+            <span>/</span>
+            <span>Agregar ingreso</span>
+        </h4>
+        <div class="mr-3">
+            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                <i class="fas fa-info-circle mt-0"></i>
+            </button>
+        </div>
+    </div>
+    <div class="px-4">
+        <div class="table-wrapper">
+            <br />
+            <div class="row">
+                <div class="col-md-10">
+                    <h2>Nuevo ingreso mensajero</h2>
+                </div>
+            </div>
+            <hr />
+            <br />
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    <br />
+                    <div class="col-md-10">
+                        <select class="mdb-select colorful-select dropdown-primary md-form" searchable="Buscar un proveedor ">
+                            <option value="" disabled selected>Seleccione un proveedor</option>
+                            <option value="1">Intelaf</option>
+                            <option value="2">Cemaco</option>
+                            <option value="3">Ferreteria B</option>
+                            <option value="3">Empresa 4</option>
+                            <option value="3">Proveedor confianza</option>
+                            <option value="142">ABCO</option>
+                            <option value="3566">ABEDUSA</option>
+                            <option value="1698">ABG PUBLICIDAD</option>
+                            <option value="2050">ABINSA</option>
+                            <option value="384">ABSA</option>
+                            <option value="2100">ACEROS SUECOS</option>
+                            <option value="1759">ACI</option>
+                            <option value="2213">ACIAC</option>
+                            <option value="3413">ACISA</option>
+                            <option value="2019">ACQUARONI</option>
+                            <option value="1906">ACR GUATEMALA</option>
+                            <option value="175">ACTIVA</option>
+                            <option value="1903">ACUATICA</option>
+                            <option value="262">ADARA</option>
+                            <option value="2056">ADAVANCE TECH</option>
+                            <option value="3706">ADBYSER</option>
+                            <option value="196">ADCO</option>
+                            <option value="2024">ADECO</option>
+                            <option value="1481">ADEPSA</option>
+                            <option value="1752">ADISA</option>
+                            <option value="36">ADMARK</option>
+                            <option value="1425">ADMINISTRACION GLOBAL Y SERVICIOS</option>
+                            <option value="1585">ADMINISTRADORA DIMO</option>
+                            <option value="2195">ADRI</option>
+                            <option value="3760">ADVANCE</option>
+                            <option value="2328">ADVSER</option>
+                            <option value="1966">AEI GUATEMALA</option>
+                            <option value="1863">AEROBOTS</option>
+                            <option value="2268">AF FUMIGACION</option>
+                            <option value="312">AFILADURIA SAN JUAN</option>
+                            <option value="266">AFSA</option>
+                            <option value="3683">AGENCIA</option>
+                            <option value="3579">AGENCIA DE VIAJES</option>
+                            <option value="1853">AGENCIA INDUSTRIAL Y MERCANTIL</option>
+                            <option value="3671">AGENCIA Y FABRICA HONDA</option>
+                            <option value="2245">AGENCIAS CEIBA CRUZ</option>
+                            <option value="2317">AGENCIAS J I COHEN</option>
+                            <option value="3789">AGENSE</option>
+                            <option value="1729">AGRICOL AMSA</option>
+                            <option value="2189">AGRICOLA AMSA</option>
+                            <option value="2199">AGRO GANADERA SANTA MARGARITA</option>
+                            <option value="2097">AGROCENTRO</option>
+                            <option value="114">AGROCHINA</option>
+                            <option value="3431">AGROCTIMA</option>
+                            <option value="2004">AGROFORTEX</option>
+                            <option value="2276">AGROINCO</option>
+                            <option value="44">AGROINDUSTRIAS VALENCIA S.A.</option>
+                            <option value="2310">AGROKTIMA</option>
+                            <option value="1745">AGROPECUARIA BELLA ISLA</option>
+                            <option value="2296">AGROPECUARIA EL ESCORIAL</option>
+                            <option value="2142">AGROPECUARIA EL TESORO</option>
+                            <option value="2348">AGROPTIMA</option>
+                            <option value="1727">AGT</option>
+                            <option value="144">AGUA PURA SALVAVIDAS</option>
+                            <option value="1611">AGUA PURA SCANDIA</option>
+
+                        </select>
+                        <label class="mdb-main-label">Proveedor</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <br />
+                    <div class="col-md-10">
+                        <select class="mdb-select colorful-select dropdown-primary md-form" searchable="Buscar una empresa ">
+                            <option value="" disabled selected>Seleccione una empresa</option>
+                            <option value="1">Intelaf</option>
+                            <option value="2">Cemaco</option>
+                            <option value="3">Ferreteria B</option>
+                            <option value="3">Empresa 4</option>
+                            <option value="3">Proveedor confianza</option>
+                            <option value="142">ABCO</option>
+                            <option value="3566">ABEDUSA</option>
+                            <option value="1698">ABG PUBLICIDAD</option>
+                            <option value="2050">ABINSA</option>
+                            <option value="384">ABSA</option>
+                            <option value="2100">ACEROS SUECOS</option>
+
+                        </select>
+                        <label class="mdb-main-label">Empresa</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <br />
+                    <div class="col-md-10">
+                        <!-- Material input -->
+                        <div class="md-form">
+                            <input type="text" id="form1" class="form-control">
+                            <label for="form1">Nombre mensajero</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <br />
+                    <div class="col-md-10">
+                        <!-- Material input -->
+                        <div class="md-form">
+                            <input type="text" id="form13" class="form-control">
+                            <label for="form13">Número de identificación (DPI/CUI)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <br />
+                    <div class="col-md-10">
+                        <!-- Material input -->
+                        <div class="md-form">
+                            <input type="text" id="form12" class="form-control">
+                            <label for="form12">Gafete</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <br />
+                    <div class="col-md-10">
+                        <!-- Material inline 1 -->
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="materialInline1" name="inlineMaterialRadiosExample">
+                            <label class="form-check-label" for="materialInline1">Salida</label>
+                        </div>
+
+                        <!-- Material inline 2 -->
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="materialInline2" name="inlineMaterialRadiosExample">
+                            <label class="form-check-label" for="materialInline2">Entrada</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <br />
+                    <div class="col-md-10">
+                        <div class="md-form">
+                            <input placeholder="Seleccione una fecha" type="text" id="date-picker-example" class="form-control datepicker">
+                            <label for="date-picker-example">Fecha de ingreso</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group text-right">
+                    <br />
+                    <div class="col-md-offset-2 col-md-10">
+                        <a class="btn btn-primary" href="@Url.Action("SolicitudesIngreso", "VistasRecepcion")"><i class="fa fa-arrow-left mr-1"></i> Regresar</a>
+                        |
+                        <button type="submit" class="btn btn-default"><i class="fas fa-magic ml-1"></i> Crear </button>
+                    </div>
+                </div>
+            </div>
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+
+                <script>
+
+                    // Data Picker Initialization
+                    $('.datepicker').pickadate();
+                </script>
+            }
+        </div>
+    </div>
+</div>

@@ -210,6 +210,9 @@
     <Compile Include="Controllers\SharedController.cs" />
     <Compile Include="Controllers\TipoUsuariosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\VistasAdminController.cs" />
+    <Compile Include="Controllers\VistasNormalController.cs" />
+    <Compile Include="Controllers\VistasRecepcionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -355,6 +358,7 @@
     <Content Include="Content\resources\img\overlays\07.html" />
     <Content Include="Content\resources\img\overlays\08.html" />
     <Content Include="Content\resources\img\overlays\09.html" />
+    <Content Include="Content\resources\img\qr_sample.png" />
     <Content Include="Content\resources\img\svg\arrow_left.svg" />
     <Content Include="Content\resources\js\addons\datatables-select.js" />
     <Content Include="Content\resources\js\addons\datatables-select.min.js" />
@@ -464,6 +468,18 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\VistasNormal\ReactivarContactos.cshtml" />
+    <Content Include="Views\Dashboard\_DashboardNormal.cshtml" />
+    <Content Include="Views\Dashboard\_DashboardRecepcion.cshtml" />
+    <Content Include="Views\Dashboard\_DashboardSuperAdmin.cshtml" />
+    <Content Include="Views\Dashboard\_DashboardAdmin.cshtml" />
+    <Content Include="Views\VistasAdmin\IngresoProveedores.cshtml" />
+    <Content Include="Views\VistasAdmin\AprobarSolicitud.cshtml" />
+    <Content Include="Views\VistasAdmin\EntregasAnticipadas.cshtml" />
+    <Content Include="Views\VistasAdmin\EntregasNormales.cshtml" />
+    <Content Include="Views\VistasAdmin\RechazarSolicitud.cshtml" />
+    <Content Include="Views\VistasAdmin\VerEntrega.cshtml" />
+    <None Include="Views\VistasNormal\AdministrarContactos.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -591,6 +607,21 @@
     <Content Include="Views\Shared\_SuperadminMenu.cshtml" />
     <Content Include="Views\Shared\_NormalMenu.cshtml" />
     <Content Include="Views\Shared\_AdminMenu.cshtml" />
+    <Content Include="Views\VistasNormal\SolicitudIngresos.cshtml" />
+    <Content Include="Views\VistasNormal\CrearIngreso.cshtml" />
+    <Content Include="Views\VistasNormal\VerSolicitudes.cshtml" />
+    <Content Include="Views\VistasNormal\PaquetesEntregados.cshtml" />
+    <Content Include="Views\VistasNormal\VisitasAutorizadas.cshtml" />
+    <Content Include="Views\VistasNormal\DetalleRechazo.cshtml" />
+    <Content Include="Views\VistasRecepcion\AdministrarProveedores.cshtml" />
+    <Content Include="Views\VistasRecepcion\SolicitudesIngreso.cshtml" />
+    <Content Include="Views\VistasRecepcion\RechazarSolicitud.cshtml" />
+    <Content Include="Views\VistasRecepcion\AceptarSolicitud.cshtml" />
+    <Content Include="Views\VistasRecepcion\IngresoProveedor.cshtml" />
+    <Content Include="Views\VistasRecepcion\RutaEntrega.cshtml" />
+    <Content Include="Views\VistasRecepcion\PaquetesEntregados.cshtml" />
+    <Content Include="Views\VistasRecepcion\VisitasProveedorAutorizadas.cshtml" />
+    <Content Include="Views\VistasRecepcion\VisitasProveedor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
